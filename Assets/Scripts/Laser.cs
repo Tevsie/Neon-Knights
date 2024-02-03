@@ -1,9 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
-public class RotateAndResetLaser : MonoBehaviour
+public class Laser : MonoBehaviour
 {
-    public GameObject laserObject;   // Laser object
+    public GameObject laserCenter;   // Laser object
     public Transform playerPosition; // Player object
     public GameObject playerRotation; // Player rotation object
     public float rotationAngle = 90f;  // Rotation angle when activating the Laser object
@@ -22,39 +22,39 @@ public class RotateAndResetLaser : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !isRotating)  // Check for left mouse button press and no ongoing rotation
         {
             initialRotation = playerRotation.transform.rotation;
-            ActivateRotateAndResetLaser();
+            ActivateLaser();
         }
 
         // Set the position and rotation of the Laser object to match the Player's position and rotation
-        laserObject.transform.position = playerPosition.position;
-        //laserObject.transform.rotation = playerPosition.rotation;
+        laserCenter.transform.position = playerPosition.position;
+        //laserCenter.transform.rotation = playerPosition.rotation;
     }
 
-    void ActivateRotateAndResetLaser()
+    void ActivateLaser()
     {
         // Set the flag to indicate that rotation is in progress
         isRotating = true;
 
         // Activate the Laser object (if it was inactive)
-        laserObject.SetActive(true);
+        laserCenter.SetActive(true);
 
         // Start the coroutine for gradual rotation of the Laser object
-        StartCoroutine(RotateAndResetLaserCoroutine());
+        StartCoroutine(LaserCoroutine());
     }
 
-    IEnumerator RotateAndResetLaserCoroutine()
+    IEnumerator LaserCoroutine()
     {
-        laserObject.transform.rotation = initialRotation;
+        laserCenter.transform.rotation = initialRotation;
 
         // Additional rotation around the Z-axis
-        laserObject.transform.Rotate(Vector3.forward, rotationAngle / 2f);
+        laserCenter.transform.Rotate(Vector3.forward, rotationAngle / 2f);
 
         float currentRotation = 0f;
 
         while (currentRotation < rotationAngle)
         {
             // Rotate the Laser object with negative rotation speed
-            laserObject.transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+            laserCenter.transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
 
             currentRotation += rotationSpeed * Time.deltaTime;
 
@@ -70,6 +70,6 @@ public class RotateAndResetLaser : MonoBehaviour
 
     void DeactivateLaser()
     {
-        laserObject.SetActive(false);
+        laserCenter.SetActive(false);
     }
 }

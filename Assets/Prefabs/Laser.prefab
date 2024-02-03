@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8832385519512410587}
   - component: {fileID: 8751158271819503392}
   m_Layer: 0
-  m_Name: RotationCenter
+  m_Name: LaserCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
