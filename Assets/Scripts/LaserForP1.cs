@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Laser : MonoBehaviour
+public class LaserForP1 : MonoBehaviour
 {
     public GameObject laserCenter;   // Laser object
     public Transform playerPosition; // Player object
