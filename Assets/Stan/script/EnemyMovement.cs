@@ -3,6 +3,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of enemy movement
+    public float minimumDistance = 2f; // Minimum distance to maintain between enemies
     private GameObject[] players; // Array to store player GameObjects
 
     void Start()
@@ -26,8 +27,12 @@ public class EnemyMovement : MonoBehaviour
             // Calculate direction towards the player
             Vector3 direction = (nearestPlayer.transform.position - transform.position).normalized;
 
-            // Move the enemy towards the player
-            transform.Translate(direction * speed * Time.deltaTime);
+            // Check if there's an obstacle in the way
+            if (!IsObstacleInWay(direction))
+            {
+                // Move the enemy towards the player
+                transform.Translate(direction * speed * Time.deltaTime);
+            }
         }
     }
 
@@ -48,5 +53,20 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return nearestPlayer;
+    }
+
+    bool IsObstacleInWay(Vector3 direction)
+    {
+        RaycastHit hit;
+        // Cast a ray to check for obstacles in the specified direction
+        if (Physics.Raycast(transform.position, direction, out hit, minimumDistance))
+        {
+            // If an obstacle is found, return true
+            if (hit.collider.gameObject.CompareTag("Enemy"))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }
