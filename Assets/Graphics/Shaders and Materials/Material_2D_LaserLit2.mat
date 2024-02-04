@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material_2D_LaserTutLit
+  m_Name: Material_2D_LaserLit2
   m_Shader: {fileID: -6465566751694194690, guid: c02ddd22ed8781440b561262ddd0dbcc, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -41,7 +41,7 @@ Material:
     - _LaserScale: 5
     - _LaserThickness: 30
     m_Colors:
-    - _Color: {r: 0.9169811, g: 0.23422708, b: 0.074396506, a: 0}
+    - _Color: {r: 0.0127091, g: 0.8136329, b: 0.9622642, a: 0}
     - _LaserSpeed: {r: -1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7321885138276462748
