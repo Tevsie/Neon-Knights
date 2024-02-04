@@ -40,7 +40,7 @@ Material:
     - _BandAmount: 4
     - _BandSpeed: 0.5
     m_Colors:
-    - _Color: {r: 0.7886792, g: 0.09970092, b: 0.5236281, a: 0}
+    - _Color: {r: 1, g: 0, b: 0.6160002, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4980379251914785700
 MonoBehaviour:
