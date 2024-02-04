@@ -43,13 +43,13 @@ Material:
     - _BandSpeed: 0.5
     - _C1BandSpeed: 0.5
     - _C1NoiseAmount: 2
-    - _C2Density: 1
+    - _C2Density: 2
     - _NoiseAmount: 3
     m_Colors:
     - _C2Speed_Direction: {r: 0, g: 1, b: 0, a: 0}
     - _Color: {r: 0.7886792, g: 0.09970092, b: 0.5236281, a: 0}
-    - _Color1: {r: 0.45889693, g: 0.23254535, b: 0.7207546, a: 0}
-    - _Color2: {r: 0.19995016, g: 0.70981914, b: 0.9547169, a: 0}
+    - _Color1: {r: 0.2547483, g: 0.03693123, b: 0.5018867, a: 0}
+    - _Color2: {r: 0.09997508, g: 0.35490957, b: 0.47735846, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4980379251914785700
 MonoBehaviour:
