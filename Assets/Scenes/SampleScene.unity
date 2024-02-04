@@ -1118,9 +1118,8 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586387082
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1845394186758659876, guid: 530ae6c153373814885ecc870b2c8428, type: 3}
+  m_PrefabInstance: {fileID: 6590843199127929044}
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
