@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float startingHealth = 5f;  // Начальное здоровье
-    public float healthP1;             // Здоровье игрока 1
-    public float healthP2;             // Здоровье игрока 2
+    public float startingHealth = 5f;  // Initial health
+    public float healthP1;             // Player 1 health
+    public float healthP2;             // Player 2 health
+    public float healthE = 3f;         // Enemy health
 
     void Start()
     {
-        // Инициализация здоровья
+        // Initialize health values
         healthP1 = startingHealth;
         healthP2 = startingHealth;
     }
 
+    // Function to handle taking damage
     public void TakeDamage(float damage, string playerTag)
     {
-        // Метод для получения урона
+        // Check the player tag and update health accordingly
         if (playerTag == "Player1")
         {
             healthP1 -= damage;
@@ -26,8 +28,13 @@ public class PlayerHealth : MonoBehaviour
             healthP2 -= damage;
             Debug.Log("Player 2 Health: " + healthP2);
         }
+        else if (playerTag == "EnemyMk2")
+        {
+            healthE -= damage;
+            Debug.Log("EnemyMk2 is dead (HealthScript)");
+        }
 
-        // Проверка на смерть (вы можете реализовать свою логику)
+        // Check for death (you can implement your own logic)
         if (healthP1 <= 0f)
         {
             Die("Player1");
@@ -37,11 +44,17 @@ public class PlayerHealth : MonoBehaviour
         {
             Die("Player2");
         }
+
+        if (healthE <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
 
+    // Function to handle death
     void Die(string playerName)
     {
-        // Логика при смерти
+        // Logic for death
         Debug.Log(playerName + " is dead");
     }
 }

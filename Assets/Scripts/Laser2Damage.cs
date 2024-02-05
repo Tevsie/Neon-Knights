@@ -4,27 +4,55 @@ public class Laser2Damage : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other)
     {
-        // Check if the colliding object is the player1
+        // Check if the colliding object is Player 1
         if (other.CompareTag("Player1"))
         {
-            // Вызываем метод Die() из компонента PlayerHealth
+            // Call the Die() method from the PlayerHealth component
             PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
 
-            // Проверяем, что playerHealth не равен null
+            // Check that playerHealth is not null
             if (playerHealth != null)
             {
-                // Уменьшаем здоровье игрока 1
+                // Decrease Player 1's health
                 playerHealth.healthP1--;
 
-                // Выводим здоровье в консоль (для дебага)
+                // Log Player 1's health to the console (for debugging)
                 Debug.Log("Player 1 hit. Health: " + playerHealth.healthP1);
 
-                // Проверяем, если здоровье игрока 1 меньше или равно 0, вызываем метод Die()
+                // Check if Player 1's health is less than or equal to 0, call the Die() method
                 if (playerHealth.healthP1 <= 0)
                 {
-                    Debug.Log("dead");
+                    Debug.Log("Player 1 dead");
                 }
             }
+        }
+        // Check if the colliding object is an enemy
+        else if (other.CompareTag("EnemyMk2"))
+        {
+            // Get the PlayerHealth component from the enemy object
+            PlayerHealth enemyHealth = other.GetComponent<PlayerHealth>();
+
+            // Check that enemyHealth is not null
+            if (enemyHealth != null)
+            {
+                // Decrease the enemy's health
+                enemyHealth.TakeDamage(1f, "EnemyMk2");
+
+                // Log the enemy's health to the console (for debugging)
+                Debug.Log("Enemy hit. Health: " + enemyHealth.healthE);
+
+                // Check if the enemy's health is less than or equal to 0, call the Die() method
+                if (enemyHealth.healthE <= 0)
+                {
+                    Debug.Log("Enemy is dead (LaserScript)");
+                }
+            }
+        }
+        // Check if the colliding object is an EnemyMk1
+        else if (other.CompareTag("EnemyMk1"))
+        {
+            // Destroy the EnemyMk1 object
+            Destroy(other.gameObject);
         }
     }
 }
