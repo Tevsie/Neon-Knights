@@ -20,40 +20,42 @@ public class SpawnManager : MonoBehaviour
         InvokeRepeating("SpawnEnemy", 0f, spawnInterval);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Check if the maximum number of enemies has been reached
-        if (currentEnemies >= maxEnemies)
-        {
-            // Stop spawning enemies
-            CancelInvoke("SpawnEnemy");
-        }
-    }
-
-    // Function to spawn an enemy
+    // Function to spawn enemies
     void SpawnEnemy()
     {
         // Check if the maximum number of enemies has been reached
         if (currentEnemies < maxEnemies)
         {
-            // Randomly select a spawn point from the array
-            Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+            // Determine the number of enemies to spawn this interval (2 to 5)
+            int enemiesToSpawn = Random.Range(2, 6);
 
-            // Randomly select an enemy prefab from the array
-            GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-
-            // Instantiate the selected enemy prefab at the randomized position
-            GameObject enemyInstance = Instantiate(selectedEnemyPrefab, spawnPoint.position, Quaternion.identity);
-
-            // Set the parent of the instantiated enemy to the parentObject
-            if (parentObject != null)
+            for (int i = 0; i < enemiesToSpawn; i++)
             {
-                enemyInstance.transform.parent = parentObject;
-            }
+                // Randomly select a spawn point from the array
+                Transform spawnPoint = GetRandomSpawnPoint();
 
-            currentEnemies++; // Increment the current number of enemies
+                // Randomly select an enemy prefab from the array
+                GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
+
+                // Instantiate the selected enemy prefab at the randomized position
+                GameObject enemyInstance = Instantiate(selectedEnemyPrefab, spawnPoint.position, Quaternion.identity);
+
+                // Set the parent of the instantiated enemy to the parentObject
+                if (parentObject != null)
+                {
+                    enemyInstance.transform.parent = parentObject;
+                }
+
+                currentEnemies++; // Increment the current number of enemies
+            }
         }
+    }
+
+    // Function to get a random spawn point
+    Transform GetRandomSpawnPoint()
+    {
+        // Randomly select a spawn point from the array
+        return spawnPoints[Random.Range(0, spawnPoints.Length)];
     }
 
     // Function to decrease the current number of enemies

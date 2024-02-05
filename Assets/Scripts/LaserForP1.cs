@@ -8,13 +8,24 @@ public class LaserForP1 : MonoBehaviour
     public GameObject playerRotation; // Player rotation object
     public float rotationAngle = 90f;  // Rotation angle when activating the Laser object
     public float rotationSpeed = 45f;  // Laser object rotation speed
+    public AudioClip laserSound;       // Sound effect for the laser
 
     private Quaternion initialRotation;  // Initial rotation of the Laser object
     private bool isRotating = false;    // Flag to check if rotation is in progress
+    private AudioSource audioSource;    // Reference to the AudioSource component
 
     void Start()
     {
         // Save the initial rotation of the Laser object
+        initialRotation = laserCenter.transform.rotation;
+        
+        // Get the AudioSource component attached to this GameObject
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // If no AudioSource is found, add one to this GameObject
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
@@ -23,6 +34,12 @@ public class LaserForP1 : MonoBehaviour
         {
             initialRotation = playerRotation.transform.rotation;
             ActivateLaser();
+
+            // Play the laser sound effect
+            if (laserSound != null)
+            {
+                audioSource.PlayOneShot(laserSound);
+            }
         }
 
         // Set the position and rotation of the Laser object to match the Player's position and rotation
