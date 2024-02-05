@@ -26,6 +26,9 @@ public class EnemyMovement : MonoBehaviour
         {
             // Calculate direction towards the player
             Vector3 direction = (nearestPlayer.transform.position - transform.position).normalized;
+            
+            // Ignore the Z component to move only along the X and Y axes
+            direction.z = 0f;
 
             // Check if there's an obstacle in the way
             if (!IsObstacleInWay(direction))
@@ -34,6 +37,9 @@ public class EnemyMovement : MonoBehaviour
                 transform.Translate(direction * speed * Time.deltaTime);
             }
         }
+
+        // Ensure that the enemy's Z position is always 0
+        transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
     }
 
     GameObject FindNearestPlayer()
@@ -57,12 +63,13 @@ public class EnemyMovement : MonoBehaviour
 
     bool IsObstacleInWay(Vector3 direction)
     {
-        RaycastHit hit;
+        RaycastHit2D hit;
         // Cast a ray to check for obstacles in the specified direction
-        if (Physics.Raycast(transform.position, direction, out hit, minimumDistance))
+        hit = Physics2D.Raycast(transform.position, direction, minimumDistance);
+        if (hit.collider != null)
         {
             // If an obstacle is found, return true
-            if (hit.collider.gameObject.CompareTag("Enemy"))
+            if (hit.collider.CompareTag("Enemy"))
             {
                 return true;
             }
