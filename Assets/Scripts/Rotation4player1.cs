@@ -11,10 +11,10 @@ public class Rotation4player1 : MonoBehaviour
         // Calculate the direction of the cursor relative to the current object position
         Vector3 lookDirection = mousePosition - transform.position;
 
-        // Get the rotation angle in radians and convert it to degrees
+        // Calculate the angle between the cursor direction and the right direction of the square
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
-        // Rotate the object towards the cursor
-        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
+        // Apply a rotation to the square so that its right side faces the cursor
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 }
