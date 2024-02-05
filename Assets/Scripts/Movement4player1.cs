@@ -23,6 +23,6 @@ public class Movement4player1 : MonoBehaviour
         transform.Translate(movement, Space.World);
 
         // Выводим текущую скорость персонажа в консоль (для дебага)
-        Debug.Log("Current Speed: " + movement.magnitude / Time.deltaTime);
+        //Debug.Log("Current Speed: " + movement.magnitude / Time.deltaTime);
     }
 }
