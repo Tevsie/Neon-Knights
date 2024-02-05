@@ -32,7 +32,7 @@ public class SpawnManager : MonoBehaviour
             for (int i = 0; i < enemiesToSpawn; i++)
             {
                 // Randomly select a spawn point from the array
-                Transform spawnPoint = GetRandomSpawnPoint();
+                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
                 // Randomly select an enemy prefab from the array
                 GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
@@ -49,13 +49,6 @@ public class SpawnManager : MonoBehaviour
                 currentEnemies++; // Increment the current number of enemies
             }
         }
-    }
-
-    // Function to get a random spawn point
-    Transform GetRandomSpawnPoint()
-    {
-        // Randomly select a spawn point from the array
-        return spawnPoints[Random.Range(0, spawnPoints.Length)];
     }
 
     // Function to decrease the current number of enemies
