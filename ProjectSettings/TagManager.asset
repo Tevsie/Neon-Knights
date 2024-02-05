@@ -3,8 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Enemy
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -12,7 +11,7 @@ TagManager:
   - 
   - Water
   - UI
-  - SynthMesh
+  - 
   - 
   - 
   - 
@@ -39,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Enemies
-    uniqueID: 179730037
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
