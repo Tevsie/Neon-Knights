@@ -1073,7 +1073,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd22124f16e062499d54773f2175e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserObject: {fileID: 1590448847797410}
+  laserCenter: {fileID: 1590448847797410}
   playerPosition: {fileID: 1406619861}
   playerRotation: {fileID: 1406619860}
   rotationAngle: 30
@@ -1425,7 +1425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dd22124f16e062499d54773f2175e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserObject: {fileID: 1781962801656464}
+  laserCenter: {fileID: 1781962801656464}
   playerPosition: {fileID: 27872318}
   playerRotation: {fileID: 27872315}
   rotationAngle: 30

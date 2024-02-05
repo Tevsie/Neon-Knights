@@ -39,3 +39,4 @@ public class LaserScript : MonoBehaviour
         DisableLaser();
     }
 }
+
