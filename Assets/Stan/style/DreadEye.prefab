@@ -536,8 +536,9 @@ GameObject:
   - component: {fileID: 5621109634142342720}
   - component: {fileID: 9042801746345914822}
   - component: {fileID: 6227414843637648077}
-  - component: {fileID: 6203314646934156811}
   - component: {fileID: 4566955148530250369}
+  - component: {fileID: 6203314646934156811}
+  - component: {fileID: -263400154504163329}
   m_Layer: 0
   m_Name: DreadEye
   m_TagString: Enemy
@@ -685,20 +686,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.2090539, y: 3.5503504}
   m_Size: {x: 3.2594094, y: 3.1007054}
   m_Direction: 1
---- !u!114 &6203314646934156811
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4682890227492975720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  minimumDistance: 0.1
 --- !u!50 &4566955148530250369
 Rigidbody2D:
   serializedVersion: 4
@@ -726,6 +713,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &6203314646934156811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682890227492975720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  minimumDistance: 0.1
+--- !u!114 &-263400154504163329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682890227492975720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a7ca257784a1e41af8abf361c61f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 5
+  healthP1: 0
+  healthP2: 0
+  healthE: 3
 --- !u!1 &5965634195522902405
 GameObject:
   m_ObjectHideFlags: 0
