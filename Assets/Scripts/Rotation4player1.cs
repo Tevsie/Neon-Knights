@@ -15,6 +15,6 @@ public class Rotation4player1 : MonoBehaviour
         float angle = Mathf.Atan2(lookDirection.y, lookDirection.x) * Mathf.Rad2Deg;
 
         // Apply a rotation to the square so that its right side faces the cursor
-        transform.rotation = Quaternion.Euler(0f, 0f, angle);
+        transform.rotation = Quaternion.Euler(0f, 0f, angle - 90);
     }
 }
