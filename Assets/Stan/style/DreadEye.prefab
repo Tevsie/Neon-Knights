@@ -541,7 +541,7 @@ GameObject:
   - component: {fileID: -263400154504163329}
   m_Layer: 0
   m_Name: DreadEye
-  m_TagString: Enemy
+  m_TagString: EnemyMk2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -742,7 +742,8 @@ MonoBehaviour:
   startingHealth: 5
   healthP1: 0
   healthP2: 0
-  healthE: 3
+  healthMk2: 3
+  enemySpriteRenderer: {fileID: 0}
 --- !u!1 &5965634195522902405
 GameObject:
   m_ObjectHideFlags: 0

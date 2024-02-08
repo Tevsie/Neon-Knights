@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 6020555218784713771}
   m_Layer: 0
   m_Name: EvilEye
-  m_TagString: Enemy
+  m_TagString: EnemyMk1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

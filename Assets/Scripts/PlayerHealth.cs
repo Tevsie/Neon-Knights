@@ -5,7 +5,7 @@ public class PlayerHealth : MonoBehaviour
     public float startingHealth = 5f;  // Initial health
     public float healthP1;             // Player 1 health
     public float healthP2;             // Player 2 health
-    public float healthE = 3f;         // Enemy health
+    public float healthMk2 = 3f;       // EnemyMk2 health
 
     void Start()
     {
@@ -30,8 +30,8 @@ public class PlayerHealth : MonoBehaviour
         }
         else if (playerTag == "EnemyMk2")
         {
-            healthE -= damage;
-            Debug.Log("EnemyMk2 is dead (HealthScript)");
+            healthMk2 -= damage;
+            Debug.Log("EnemyMk2 Health: " + healthMk2);
         }
 
         // Check for death (you can implement your own logic)
@@ -45,9 +45,9 @@ public class PlayerHealth : MonoBehaviour
             Die("Player2");
         }
 
-        if (healthE <= 0f)
+        if (healthMk2 <= 0f)
         {
-            Destroy(gameObject);
+            Die("EnemyMk2");
         }
     }
 
@@ -56,5 +56,6 @@ public class PlayerHealth : MonoBehaviour
     {
         // Logic for death
         Debug.Log(playerName + " is dead");
+        Destroy(gameObject); // Destroy the player object
     }
 }

@@ -9,7 +9,7 @@ public class EnemyMovement : MonoBehaviour
     void Start()
     {
         // Find all GameObjects tagged as "Player" in the scene
-        players = GameObject.FindGameObjectsWithTag("Player");
+        players = GameObject.FindGameObjectsWithTag("Player1");
     }
 
     void Update()
