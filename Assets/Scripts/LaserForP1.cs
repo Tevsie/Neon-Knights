@@ -48,15 +48,15 @@ public class LaserForP1 : MonoBehaviour
             }
         }
 
-        if (extraPrefabInstance != null)
+        if (extraPrefabInstance != null && playerPosition != null)
         {
             // Update the position of the extra prefab to match the player's position
             extraPrefabInstance.transform.position = playerPosition.position;
-        }
 
-        // Set the position and rotation of the Laser object to match the Player's position and rotation
-        laserCenter.transform.position = playerPosition.position;
-        //laserCenter.transform.rotation = playerPosition.rotation;
+            // Set the position and rotation of the Laser object to match the Player's position and rotation
+            laserCenter.transform.position = playerPosition.position;
+            //laserCenter.transform.rotation = playerPosition.rotation;
+        }
     }
 
     void ActivateLaser()
