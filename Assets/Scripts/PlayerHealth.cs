@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public float healthMk2 = 3f;       // EnemyMk2 health
 
     private MeshBlinkingEffect playerBlinkingEffect;
-    private SpriteBlinkingEffect enemyBlinkingEffect;
+    private MeshBlinkingEffect enemyBlinkingEffect;
     private SpawnManager spawnManager; // Reference to the SpawnManager script
 
     void Start()
@@ -19,10 +19,12 @@ public class PlayerHealth : MonoBehaviour
 
         // Get the BlinkingEffect components attached to the player
         playerBlinkingEffect = GetComponent<MeshBlinkingEffect>();
-        enemyBlinkingEffect = GetComponent<SpriteBlinkingEffect>();
+
+        // Get the enemy blinking effect component
+        enemyBlinkingEffect = GetComponent<MeshBlinkingEffect>();
 
         // Get the SpawnManager script attached to the SpawnManager object
-        spawnManager = GameObject.FindObjectOfType<SpawnManager>();
+        spawnManager = FindObjectOfType<SpawnManager>();
     }
 
     // Function to handle taking damage
