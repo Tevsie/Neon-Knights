@@ -4,18 +4,22 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of enemy movement
     public float minimumDistance = 2f; // Minimum distance to maintain between enemies
-    private GameObject[] players; // Array to store player GameObjects
+    private GameObject[] player1Objects; // Array to store player1 GameObjects
+    private GameObject[] player2Objects; // Array to store player2 GameObjects
 
     void Start()
     {
-        // Find all GameObjects tagged as "Player" in the scene
-        players = GameObject.FindGameObjectsWithTag("Player1");
+        // Find all GameObjects tagged as "Player1" and "Player2" in the scene
+        UpdatePlayerArrays();
     }
 
     void Update()
     {
+        // Update the player arrays if necessary
+        UpdatePlayerArrays();
+
         // If there are no players in the scene, exit the Update method
-        if (players.Length == 0)
+        if (player1Objects.Length == 0 && player2Objects.Length == 0)
             return;
 
         // Find the nearest player
@@ -26,7 +30,7 @@ public class EnemyMovement : MonoBehaviour
         {
             // Calculate direction towards the player
             Vector3 direction = (nearestPlayer.transform.position - transform.position).normalized;
-            
+
             // Ignore the Z component to move only along the X and Y axes
             direction.z = 0f;
 
@@ -42,19 +46,43 @@ public class EnemyMovement : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y, 0f);
     }
 
+    void UpdatePlayerArrays()
+    {
+        // Find all GameObjects tagged as "Player1" and "Player2" in the scene
+        player1Objects = GameObject.FindGameObjectsWithTag("Player1");
+        player2Objects = GameObject.FindGameObjectsWithTag("Player2");
+    }
+
     GameObject FindNearestPlayer()
     {
         GameObject nearestPlayer = null;
         float minDistance = Mathf.Infinity;
 
-        // Iterate through all player GameObjects and find the nearest one
-        foreach (GameObject player in players)
+        // Iterate through all player1 GameObjects and find the nearest one
+        foreach (GameObject player in player1Objects)
         {
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            if (distance < minDistance)
+            if (player != null)
             {
-                minDistance = distance;
-                nearestPlayer = player;
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestPlayer = player;
+                }
+            }
+        }
+
+        // Iterate through all player2 GameObjects and find the nearest one
+        foreach (GameObject player in player2Objects)
+        {
+            if (player != null)
+            {
+                float distance = Vector3.Distance(transform.position, player.transform.position);
+                if (distance < minDistance)
+                {
+                    minDistance = distance;
+                    nearestPlayer = player;
+                }
             }
         }
 
