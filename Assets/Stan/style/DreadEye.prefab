@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   minimumDistance: 0.1
+  targetPoint: {x: -14, y: 20, z: 0}
 --- !u!114 &-263400154504163329
 MonoBehaviour:
   m_ObjectHideFlags: 0

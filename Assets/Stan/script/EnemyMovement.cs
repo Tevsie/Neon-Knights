@@ -4,6 +4,8 @@ public class EnemyMovement : MonoBehaviour
 {
     public float speed = 5f; // Speed of enemy movement
     public float minimumDistance = 2f; // Minimum distance to maintain between enemies
+    public Vector3 targetPoint; // Point outside the game scene where enemies will move if no players are present
+
     private GameObject[] player1Objects; // Array to store player1 GameObjects
     private GameObject[] player2Objects; // Array to store player2 GameObjects
 
@@ -17,10 +19,6 @@ public class EnemyMovement : MonoBehaviour
     {
         // Update the player arrays if necessary
         UpdatePlayerArrays();
-
-        // If there are no players in the scene, exit the Update method
-        if (player1Objects.Length == 0 && player2Objects.Length == 0)
-            return;
 
         // Find the nearest player
         GameObject nearestPlayer = FindNearestPlayer();
@@ -40,6 +38,12 @@ public class EnemyMovement : MonoBehaviour
                 // Move the enemy towards the player
                 transform.Translate(direction * speed * Time.deltaTime);
             }
+        }
+        else
+        {
+            // Move towards the target point outside the game scene
+            Vector3 directionToTarget = (targetPoint - transform.position).normalized;
+            transform.Translate(directionToTarget * speed * Time.deltaTime);
         }
 
         // Ensure that the enemy's Z position is always 0

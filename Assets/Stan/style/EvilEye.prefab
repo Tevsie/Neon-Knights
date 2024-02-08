@@ -147,6 +147,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   minimumDistance: 0.1
+  targetPoint: {x: -14, y: 20, z: 0}
 --- !u!70 &2864135247026438344
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
