@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material_2D_EnemyOutline
-  m_Shader: {fileID: -6465566751694194690, guid: 84c286c67c34d6c4f86f63bdcb80aba9, type: 3}
+  m_Name: Material_2D_EnemyCore
+  m_Shader: {fileID: -6465566751694194690, guid: f9f9d52b7caa96046a170dfe3aafd969, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,12 +23,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: cbe4c72bf4ff95c4fa7ff9d56e84cd57, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_d169cc66d8634940aeb80d03fee92f15_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 6f7b5bffe6854224e817acb61888a30f, type: 3}
+    - MainTex_:
+        m_Texture: {fileID: 2800000, guid: 748d81bc1cabd0c4dab97c4db68fdda3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -45,14 +41,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _ChangingOutilineLencght: 1
-    - _OutlineThickness: 0
-    - _ParticleSpeed: 2
-    - _RotationSpeed: 6
+    - _LaserEdgeSmoothness: 10
+    - _LaserScale: 5
+    - _LaserThickness: 300
     m_Colors:
-    - _OutilineColor: {r: 1, g: 0, b: 0.013642311, a: 0}
+    - _Color: {r: 4, g: 0, b: 0, a: 1}
+    - _LaserSpeed: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &4256253952950654254
+--- !u!114 &3041579759460333217
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
