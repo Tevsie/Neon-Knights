@@ -524,11 +524,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a70d4f4ac336fa4097c1145e17a9409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefabs:
-  - {fileID: 4682890227492975720, guid: d75d78231af2bb54585cf16833b4d3d7, type: 3}
-  - {fileID: 2826108809213010886, guid: 776bbd94a6152fa42b854b40781f5641, type: 3}
-  spawnInterval: 1
-  maxEnemies: 50
+  enemySpawnInfo:
+  - enemyPrefab: {fileID: 4682890227492975720, guid: d75d78231af2bb54585cf16833b4d3d7, type: 3}
+    spawnRate: 0.05
+  - enemyPrefab: {fileID: 2826108809213010886, guid: 776bbd94a6152fa42b854b40781f5641, type: 3}
+    spawnRate: 0.95
+  spawnInterval: 2
+  maxEnemiesPerSpawnPoint: 5
+  minEnemiesToSpawn: 2
+  maxTotalEnemies: 50
   spawnPoints:
   - {fileID: 1076796057}
   - {fileID: 554369652}
@@ -1329,7 +1333,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 389a837bbe21d44429a53ae3395cfb24, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2036,6 +2040,9 @@ PrefabInstance:
       addedObject: {fileID: 1780412265}
     - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 1780412267}
+    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 1780412262}
     - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       insertIndex: -1
@@ -2043,9 +2050,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1780412260}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412267}
     - targetCorrespondingSourceObject: {fileID: 5228549430284429211, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1665698181}
@@ -5300,7 +5304,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0
+  m_Volume: 0.1
   m_Pitch: 1.5
   Loop: 0
   Mute: 0

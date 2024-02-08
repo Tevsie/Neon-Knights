@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
 
     private MeshBlinkingEffect playerBlinkingEffect;
     private SpriteBlinkingEffect enemyBlinkingEffect;
+    private SpawnManager spawnManager; // Reference to the SpawnManager script
 
     void Start()
     {
@@ -19,6 +20,9 @@ public class PlayerHealth : MonoBehaviour
         // Get the BlinkingEffect components attached to the player
         playerBlinkingEffect = GetComponent<MeshBlinkingEffect>();
         enemyBlinkingEffect = GetComponent<SpriteBlinkingEffect>();
+
+        // Get the SpawnManager script attached to the SpawnManager object
+        spawnManager = GameObject.FindObjectOfType<SpawnManager>();
     }
 
     // Function to handle taking damage
@@ -45,9 +49,15 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("EnemyMk2 Health: " + healthMk2);
             // Start blinking effect when enemyMk2 takes damage
             enemyBlinkingEffect.StartBlinking();
-        }
 
-        // Check for death (you can implement your own logic)
+            // Check for death
+            if (healthMk2 <= 0f)
+            {
+                Die("EnemyMk2");
+            }
+        }
+        
+        // Check for death of players
         if (healthP1 <= 0f)
         {
             Die("Player1");
@@ -57,11 +67,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Die("Player2");
         }
-
-        if (healthMk2 <= 0f)
-        {
-            Die("EnemyMk2");
-        }
     }
 
     // Function to handle death
@@ -69,6 +74,13 @@ public class PlayerHealth : MonoBehaviour
     {
         // Logic for death
         Debug.Log(playerName + " is dead");
+
+        // If the enemy dies, decrease the enemy count
+        if (playerName == "EnemyMk2")
+        {
+            spawnManager.DecreaseEnemyCount();
+        }
+
         Destroy(gameObject); // Destroy the player object
     }
 }
