@@ -1329,7 +1329,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 389a837bbe21d44429a53ae3395cfb24, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.097
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -3897,8 +3897,8 @@ MonoBehaviour:
   player2: {fileID: 1780412259}
   prefabToFollow1: {fileID: 170871611}
   prefabToFollow2: {fileID: 1940070993}
-  offset1: {x: 1.5, y: 0.9, z: 0}
-  offset2: {x: 1.5, y: 0.9, z: 0}
+  offset1: {x: 1.75, y: 0.8, z: 0}
+  offset2: {x: 1.75, y: 0.8, z: 0}
 --- !u!1001 &1593093660
 PrefabInstance:
   m_ObjectHideFlags: 0
