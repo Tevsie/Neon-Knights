@@ -92,13 +92,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5967726726819515158}
-  - component: {fileID: 1235332978308163965}
-  - component: {fileID: 2995781505464532855}
-  - component: {fileID: 2175291602610670421}
   - component: {fileID: 5253197545709984633}
-  - component: {fileID: 5859671031403440093}
-  - component: {fileID: 2864135247026438344}
   - component: {fileID: 5727732991379158258}
+  - component: {fileID: 2864135247026438344}
   - component: {fileID: 6020555218784713771}
   m_Layer: 0
   m_Name: EvilEye
@@ -125,61 +121,6 @@ Transform:
   - {fileID: 705775186399834137}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1235332978308163965
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826108809213010886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62b9a7e211ea2074c83a96a2ab1e590f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Head: {fileID: 0}
-  HeadSprites:
-  - {fileID: -1828946549344447192, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  - {fileID: -7252215782646672311, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  - {fileID: -1381065623766834176, guid: 3745c0e5fabd9e848902399edef1f145, type: 3}
-  Animator: {fileID: 5859671031403440093}
-  Variations: 0
---- !u!114 &2995781505464532855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826108809213010886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81c8ad34430ec104ea8c1856fce3164b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Body: {fileID: 0}
-  Weapon: {fileID: 0}
-  Shield: {fileID: 0}
-  Status: {fileID: 0}
---- !u!114 &2175291602610670421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826108809213010886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80e7850929f3a324984a5875e3615cbb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SortingGroup: {fileID: 5253197545709984633}
-  Sprites:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
 --- !u!210 &5253197545709984633
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -192,27 +133,20 @@ SortingGroup:
   m_SortingLayer: 0
   m_SortingOrder: 200
   m_SortAtRoot: 0
---- !u!95 &5859671031403440093
-Animator:
-  serializedVersion: 5
+--- !u!114 &5727732991379158258
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2826108809213010886}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e09e63c9111c49b468fa24826028d51e, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  minimumDistance: 0.1
 --- !u!70 &2864135247026438344
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -248,20 +182,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.13512932, y: 3.2516572}
   m_Size: {x: 3.04416, y: 2.2837214}
   m_Direction: 1
---- !u!114 &5727732991379158258
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2826108809213010886}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  minimumDistance: 0.1
 --- !u!50 &6020555218784713771
 Rigidbody2D:
   serializedVersion: 4
@@ -288,7 +208,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 4
+  m_Constraints: 0
 --- !u!1 &4004104936175885101
 GameObject:
   m_ObjectHideFlags: 0

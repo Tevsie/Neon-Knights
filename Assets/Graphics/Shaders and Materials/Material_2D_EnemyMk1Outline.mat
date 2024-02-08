@@ -50,7 +50,7 @@ Material:
     - _ParticleSpeed: 2
     - _RotationSpeed: 6
     m_Colors:
-    - _OutilineColor: {r: 1, g: 0, b: 0.013642311, a: 0}
+    - _OutilineColor: {r: 2.9960787, g: 0, b: 0.040873438, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4256253952950654254
 MonoBehaviour:
