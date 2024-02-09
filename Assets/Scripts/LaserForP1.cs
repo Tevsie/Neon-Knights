@@ -41,7 +41,6 @@ public class LaserForP1 : MonoBehaviour
             // Instantiate the extra prefab
             extraPrefabInstance = Instantiate(extraPrefab, playerPosition.position, Quaternion.identity);
 
-            // Play the laser sound effect
             if (laserSound != null)
             {
                 audioSource.PlayOneShot(laserSound);

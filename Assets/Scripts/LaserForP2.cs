@@ -3,28 +3,57 @@ using System.Collections;
 
 public class LaserForP2 : MonoBehaviour
 {
-    public GameObject laserCenter1;   // Laser object
-    public Transform playerPosition1; // Player object
-    public GameObject playerRotation1; // Player rotation object
-    public float rotationAngle1 = 90f;  // Rotation angle when activating the Laser object
-    public float rotationSpeed1 = 45f;  // Laser object rotation speed
-    public string gamepadButton = "Fire2"; // Gamepad button for activation
+    public GameObject laserCenter1;  
+    public Transform playerPosition1; 
+    public GameObject playerRotation1; 
+    public float rotationAngle1 = 90f;  
+    public float rotationSpeed1 = 45f;  
+    public AudioClip laserSound1;
+    public GameObject extraPrefab1;
+    public string gamepadButton = "Fire2"; 
 
-    private Quaternion initialRotation;  // Initial rotation of the Laser object
-    private bool isRotating = false;    // Flag to check if rotation is in progress
+    private Quaternion initialRotation;  
+    private bool isRotating = false; 
+    private AudioSource audioSource;
+    private GameObject extraPrefabInstance;
 
     void Start()
     {
         // Save the initial rotation of the Laser object
+        initialRotation = laserCenter1.transform.rotation;
+
+        // Get the AudioSource component attached to this GameObject
+        audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // If no AudioSource is found, add one to this GameObject
+            audioSource = gameObject.AddComponent<AudioSource>();
+        }
     }
 
     void Update()
     {
         if (Input.GetButtonDown(gamepadButton) && !isRotating)  // Check for the specified gamepad button press and no ongoing rotation
         {
-            initialRotation = playerRotation1.transform.rotation;
+            initialRotation = playerRotation1.transform.rotation * Quaternion.Euler(0, 0, 90);
             ActivateLaser1();
+
+            extraPrefabInstance = Instantiate(extraPrefab1, playerPosition1.position, Quaternion.identity);
+
+            if (laserSound1 != null)
+            {
+                audioSource.PlayOneShot(laserSound1);
+                StartCoroutine(DestroyExtraPrefab1(extraPrefabInstance, laserSound1.length));  
+            }
         }
+
+        // Update the position of the extra prefab to match the player's position
+        if (extraPrefabInstance != null && playerPosition1 != null)
+        {
+            extraPrefabInstance.transform.position = playerPosition1.position;
+        }
+
+        laserCenter1.transform.position = playerPosition1.position;
 
         // Check for null references before accessing transform properties
         if (playerPosition1 != null && laserCenter1 != null)
@@ -75,5 +104,14 @@ public class LaserForP2 : MonoBehaviour
     void DeactivateLaser1()
     {
         laserCenter1.SetActive(false);
+    }
+
+    IEnumerator DestroyExtraPrefab1(GameObject extraPrefabInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        if (extraPrefabInstance != null)
+        {
+            Destroy(extraPrefabInstance);
+        }
     }
 }
