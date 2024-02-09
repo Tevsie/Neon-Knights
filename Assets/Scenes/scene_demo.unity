@@ -2205,6 +2205,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player2
       objectReference: {fileID: 0}
+    - target: {fileID: 8381566776982166142, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.084
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7008507073043058469, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
     m_RemovedGameObjects: []
@@ -4052,6 +4056,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 27533370067829236, guid: c834842de56d9c2428d7d4e7421bf050, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 848701484626076571, guid: c834842de56d9c2428d7d4e7421bf050, type: 3}
       propertyPath: m_Color.a
       value: 0.11764706
@@ -4864,6 +4872,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
+    - target: {fileID: 5917604215214524087, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.088
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4497039698582592615, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
     m_RemovedGameObjects: []
@@ -5444,7 +5456,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5433629346151781398, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6563349462374388650, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_LocalScale.x
