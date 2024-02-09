@@ -3,7 +3,7 @@ using System.Collections;
 
 public class LaserForP1 : MonoBehaviour
 {
-    public GameObject laserCenter;       // Laser object
+    public GameObject laserCenter;      // Laser object
     public Transform playerPosition;    // Player object
     public GameObject playerRotation;   // Player rotation object
     public float rotationAngle = 90f;   // Rotation angle when activating the Laser object
@@ -34,7 +34,8 @@ public class LaserForP1 : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && !isRotating)  // Check for left mouse button press and no ongoing rotation
         {
-            initialRotation = playerRotation.transform.rotation;
+        initialRotation = playerRotation.transform.rotation * Quaternion.Euler(0, 0, 90);
+
             ActivateLaser();
 
             // Instantiate the extra prefab
@@ -48,7 +49,7 @@ public class LaserForP1 : MonoBehaviour
             }
         }
 
-        if (extraPrefabInstance != null)
+        if (extraPrefabInstance != null && playerPosition != null)
         {
             // Update the position of the extra prefab to match the player's position
             extraPrefabInstance.transform.position = playerPosition.position;

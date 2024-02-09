@@ -39,10 +39,10 @@ public class Laser1Damage : MonoBehaviour
                 enemyHealth.TakeDamage(1f, "EnemyMk2");
 
                 // Log the enemy's health to the console (for debugging)
-                Debug.Log("Player 2 hit. Health: " + enemyHealth.healthE);
+                Debug.Log("Player 2 hit. Health: " + enemyHealth.healthMk2);
 
                 // Check if the enemy's health is less than or equal to 0, call the Die() method
-                if (enemyHealth.healthE <= 0)
+                if (enemyHealth.healthMk2 <= 0)
                 {
                     Debug.Log("EnemyMk2 is dead (LaserScript)");
                 }

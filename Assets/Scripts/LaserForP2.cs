@@ -26,9 +26,12 @@ public class LaserForP2 : MonoBehaviour
             ActivateLaser1();
         }
 
-        // Set the position and rotation of the Laser object to match the Player's position and rotation
-        laserCenter1.transform.position = playerPosition1.position;
-        //laserCenter.transform.rotation = playerPosition.rotation;
+        // Check for null references before accessing transform properties
+        if (playerPosition1 != null && laserCenter1 != null)
+        {
+            // Set the position and rotation of the Laser object to match the Player's position and rotation
+            laserCenter1.transform.position = playerPosition1.position;
+        }
     }
 
     void ActivateLaser1()

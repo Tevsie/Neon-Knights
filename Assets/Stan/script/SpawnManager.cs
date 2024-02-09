@@ -2,11 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EnemySpawnInfo
+{
+    public GameObject enemyPrefab; // The enemy prefab
+    public float spawnRate; // The spawn rate for this enemy type
+}
+
 public class SpawnManager : MonoBehaviour
 {
-    public GameObject[] enemyPrefabs; // Array of possible enemy prefabs to spawn
+    public EnemySpawnInfo[] enemySpawnInfo; // Array of enemy spawn information
     public float spawnInterval = 2f; // Interval between spawns
-    public int maxEnemies = 10; // Maximum number of enemies allowed
+    public int maxEnemiesPerSpawnPoint = 5; // Maximum number of enemies allowed per spawn point
+    public int minEnemiesToSpawn = 2; // Minimum number of enemies to spawn per interval
+    public int maxTotalEnemies = 50; // Maximum total number of enemies allowed
 
     public Transform[] spawnPoints; // Array of spawn points representing different zones
     public Transform parentObject; // Parent GameObject for the spawned enemies
@@ -24,29 +33,38 @@ public class SpawnManager : MonoBehaviour
     void SpawnEnemy()
     {
         // Check if the maximum number of enemies has been reached
-        if (currentEnemies < maxEnemies)
+        if (currentEnemies < maxTotalEnemies)
         {
-            // Determine the number of enemies to spawn this interval (2 to 5)
-            int enemiesToSpawn = Random.Range(2, 6);
-
-            for (int i = 0; i < enemiesToSpawn; i++)
+            // Loop through each spawn point
+            foreach (Transform spawnPoint in spawnPoints)
             {
-                // Randomly select a spawn point from the array
-                Transform spawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+                // Determine the number of enemies to spawn this interval (minimum to maximum)
+                int enemiesToSpawn = Random.Range(minEnemiesToSpawn, maxEnemiesPerSpawnPoint + 1);
 
-                // Randomly select an enemy prefab from the array
-                GameObject selectedEnemyPrefab = enemyPrefabs[Random.Range(0, enemyPrefabs.Length)];
-
-                // Instantiate the selected enemy prefab at the randomized position
-                GameObject enemyInstance = Instantiate(selectedEnemyPrefab, spawnPoint.position, Quaternion.identity);
-
-                // Set the parent of the instantiated enemy to the parentObject
-                if (parentObject != null)
+                for (int i = 0; i < enemiesToSpawn; i++)
                 {
-                    enemyInstance.transform.parent = parentObject;
-                }
+                    // Loop through each enemy spawn info
+                    foreach (EnemySpawnInfo info in enemySpawnInfo)
+                    {
+                        // Calculate the chance to spawn this enemy type in the current interval
+                        float spawnChance = info.spawnRate / spawnInterval;
 
-                currentEnemies++; // Increment the current number of enemies
+                        // If the random value is less than the spawn chance, spawn the enemy
+                        if (Random.value < spawnChance && currentEnemies < maxTotalEnemies)
+                        {
+                            // Instantiate the selected enemy prefab at the randomized position
+                            GameObject enemyInstance = Instantiate(info.enemyPrefab, spawnPoint.position, Quaternion.identity);
+
+                            // Set the parent of the instantiated enemy to the parentObject
+                            if (parentObject != null)
+                            {
+                                enemyInstance.transform.parent = parentObject;
+                            }
+
+                            currentEnemies++; // Increment the current number of enemies
+                        }
+                    }
+                }
             }
         }
     }
