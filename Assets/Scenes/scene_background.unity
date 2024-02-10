@@ -865,7 +865,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 680678073}
-  - component: {fileID: 680678072}
   m_Layer: 0
   m_Name: HypotheticalGun/P2
   m_TagString: Untagged
@@ -873,22 +872,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &680678072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680678071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 332859481583ff14d8e9a834723d7fd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 0}
-  lineRenderer: {fileID: 0}
-  firePoint: {fileID: 0}
-  laserDuration: 1
 --- !u!4 &680678073
 Transform:
   m_ObjectHideFlags: 0
@@ -12575,6 +12558,7 @@ PrefabInstance:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 775975699}
   - {fileID: 1986237737}
   - {fileID: 1103569091}
   - {fileID: 1172272260}
@@ -12583,7 +12567,6 @@ SceneRoots:
   - {fileID: 49216585}
   - {fileID: 680678073}
   - {fileID: 399864980}
-  - {fileID: 775975699}
   - {fileID: 172108265772212371}
   - {fileID: 2613906834709177868}
   - {fileID: 206670233}
