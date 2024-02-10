@@ -38,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
         if (isRespawningP1 || isRespawningP2)
             return;
 
-        // Check the player tag and update health accordingly
         if (playerTag == "Player1")
         {
             healthP1 -= damage;
