@@ -1,30 +1,51 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FadeOutScript : MonoBehaviour
 {
-    SpriteRenderer rend;
+    [SerializeField] private SpriteRenderer rend;
+
+    [Header("Fade Settings")]
+    [SerializeField] private float fadeSpeed = 0.05f; // Speed of the fade
+
+    private Color startColor; // Initial color with only alpha changed
 
     // Start is called before the first frame update
     void Start()
     {
-        rend = GetComponent<SpriteRenderer>();
+        if (rend == null)
+            rend = GetComponent<SpriteRenderer>();
+
+        startColor = rend.color; // Store the initial color with only alpha changed
+        startColor.a = 1f; // Ensure initial alpha is 1 (fully opaque)
     }
 
     IEnumerator FadeOut()
     {
-        for (float f = 1f; f >= -0.05f; f -= 0.05f)
+        float elapsedTime = 0f;
+        Color targetColor = new Color(startColor.r, startColor.g, startColor.b, 0f); // Target alpha is 0 (fully transparent)
+
+        while (elapsedTime < 1f) // Ensure the fade completes when reaching the target alpha
         {
-            Color c = rend.material.color;
-            c.a = f;
-            rend.material.color = c;
-            yield return new WaitForSeconds(0.05f);
+            float newAlpha = Mathf.Lerp(startColor.a, targetColor.a, elapsedTime);
+            rend.color = new Color(startColor.r, startColor.g, startColor.b, newAlpha); // Apply new color with interpolated alpha
+
+            elapsedTime += Time.deltaTime * fadeSpeed;
+            yield return null;
         }
+
+        rend.color = targetColor; // Ensure the final alpha is set to the target alpha
     }
 
-    public void startFadingOut()
+    public void StartFadingOut()
     {
         StartCoroutine(FadeOut());
+    }
+
+    // Allow modifying the fade speed from the Inspector
+    public float FadeSpeed
+    {
+        get { return fadeSpeed; }
+        set { fadeSpeed = value; }
     }
 }

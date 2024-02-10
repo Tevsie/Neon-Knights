@@ -17,6 +17,9 @@ public class LaserForP1 : MonoBehaviour
     private AudioSource audioSource;     // Reference to the AudioSource component
     private GameObject extraPrefabInstance; // Instance of the extra prefab
 
+    public FadeOutScript fadeOutScript;
+    public FadeInScript fadeInScript;
+
     void Start()
     {
         // Save the initial rotation of the Laser object
@@ -62,20 +65,16 @@ public class LaserForP1 : MonoBehaviour
 
     void ActivateLaser()
     {
-        // Set the flag to indicate that rotation is in progress
         isRotating = true;
-
-        // Activate the Laser object (if it was inactive)
         laserCenter.SetActive(true);
-
-        // Start the coroutine for gradual rotation of the Laser object
         StartCoroutine(LaserCoroutine());
     }
 
     IEnumerator LaserCoroutine()
     {
+        Debug.Log("Blocking sunglasses");
+        fadeInScript.StartFadingIn();
         laserCenter.transform.rotation = initialRotation;
-
         // Additional rotation around the Z-axis
         laserCenter.transform.Rotate(Vector3.forward, rotationAngle / 2f);
 
@@ -94,9 +93,10 @@ public class LaserForP1 : MonoBehaviour
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser();
 
+        Debug.Log("Reveal coolness");
+        fadeOutScript.StartFadingOut();
         yield return new WaitForSeconds(swordCooldown);
 
-        // Reset the flag to indicate that rotation is complete
         isRotating = false;
     }
 

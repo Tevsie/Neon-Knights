@@ -1974,6 +1974,7 @@ MonoBehaviour:
   laserSound1: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab1: {fileID: 1486128856}
   gamepadButton: Fire2
+  swordCooldown1: 1
 --- !u!82 &783438482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2829,37 +2830,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3802758848908115986, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1192329099}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412264}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412263}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412266}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412265}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412267}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412268}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412262}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412260}
-    - targetCorrespondingSourceObject: {fileID: 3887112473458414958, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1780412261}
-    - targetCorrespondingSourceObject: {fileID: 5228549430284429211, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1665698181}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
 --- !u!224 &1014260745 stripped
 RectTransform:
@@ -5112,7 +5083,7 @@ RectTransform:
   m_Children:
   - {fileID: 1073154184}
   - {fileID: 858027036}
-  m_Father: {fileID: 2129874104}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -5365,7 +5336,6 @@ RectTransform:
   m_Children:
   - {fileID: 125425548}
   - {fileID: 191504461}
-  - {fileID: 2128812163}
   m_Father: {fileID: 1126268911}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -5804,6 +5774,10 @@ PrefabInstance:
       value: gabriel_player_pink
       objectReference: {fileID: 0}
     - target: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
       propertyPath: m_TagString
       value: Player1
       objectReference: {fileID: 0}
@@ -5853,37 +5827,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5917604215214524087, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1770233031}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842177}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842176}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842178}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842179}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842180}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842181}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842175}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842174}
-    - targetCorrespondingSourceObject: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1307842173}
-    - targetCorrespondingSourceObject: {fileID: 3435206766026603383, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1379096941}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
 --- !u!1 &1753317454 stripped
 GameObject:
@@ -6200,7 +6144,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1770233031
 Transform:
   m_ObjectHideFlags: 0
@@ -6228,6 +6172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19f5a5986dbc634683edac09b05a625, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 1770233034}
+  fadeSpeed: 0.5
 --- !u!114 &1770233033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6240,6 +6186,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc9b71810ee6a24bb075ab10bb04aa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 1770233034}
+  fadeSpeed: 1.5
 --- !u!212 &1770233034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6282,7 +6230,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3132075, g: 0.00886431, b: 0.1894636, a: 1}
+  m_Color: {r: 0.3132075, g: 0.00886431, b: 0.1894636, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -6897,6 +6845,9 @@ MonoBehaviour:
   rotationSpeed: 75
   laserSound: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab: {fileID: 1326801664}
+  swordCooldown: 2
+  fadeOutScript: {fileID: 1770233032}
+  fadeInScript: {fileID: 1770233033}
 --- !u!1 &1927521943
 GameObject:
   m_ObjectHideFlags: 0
@@ -7721,5 +7672,5 @@ SceneRoots:
   - {fileID: 822670365}
   - {fileID: 845331460}
   - {fileID: 716926349}
-  - {fileID: 2129874104}
   - {fileID: 1232070487}
+  - {fileID: 1527080244}
