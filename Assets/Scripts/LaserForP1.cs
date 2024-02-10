@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using System.Runtime.Serialization.Formatters;
 
 public class LaserForP1 : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class LaserForP1 : MonoBehaviour
 
     public FadeOutScript fadeOutScript;
     public FadeInScript fadeInScript;
+    public EyeFaderScript eyeFaderScript;
 
     void Start()
     {
@@ -74,6 +76,8 @@ public class LaserForP1 : MonoBehaviour
     {
         Debug.Log("Blocking sunglasses");
         fadeInScript.StartFadingIn();
+        StartCoroutine(eyeFaderScript.FadeOutEyes());
+
         laserCenter.transform.rotation = initialRotation;
         // Additional rotation around the Z-axis
         laserCenter.transform.Rotate(Vector3.forward, rotationAngle / 2f);
@@ -96,6 +100,7 @@ public class LaserForP1 : MonoBehaviour
         Debug.Log("Reveal coolness");
         fadeOutScript.StartFadingOut();
         yield return new WaitForSeconds(swordCooldown);
+        StartCoroutine(eyeFaderScript.FadeInEyes());
 
         isRotating = false;
     }

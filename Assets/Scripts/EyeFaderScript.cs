@@ -7,30 +7,31 @@ public class EyeFaderScript : MonoBehaviour
     public string shaderVarRef;
     public float shaderVarRate = 0.1f;
 
-    // Start the eye animation
-    public void StartEyeAnimation(float goal)
+    // Coroutine to fade out the eye effect
+    public IEnumerator FadeOutEyes()
     {
-        StartCoroutine(AnimateEyes(goal));
-    }
+        float currentValue = mat.GetFloat(shaderVarRef);
 
-    // Coroutine to animate the eyes
-    private IEnumerator AnimateEyes(float goal)
-    {
-        float valueToAnimate = mat.GetFloat(shaderVarRef);
-
-        // Animate until reaching the goal value
-        while (valueToAnimate > goal)
+        // Animate until reaching fully transparent
+        while (currentValue > 0f)
         {
-            valueToAnimate -= shaderVarRate;
-            mat.SetFloat(shaderVarRef, valueToAnimate);
+            currentValue -= shaderVarRate;
+            mat.SetFloat(shaderVarRef, currentValue);
             yield return null; // Wait for the next frame
         }
     }
 
-    // Coroutine to turn off the eye effect
-    public IEnumerator TurnOffEyes()
+    // Coroutine to fade in the eye effect
+    public IEnumerator FadeInEyes()
     {
-        mat.SetFloat(shaderVarRef, 0f);
-        yield return null;
+        float currentValue = mat.GetFloat(shaderVarRef);
+
+        // Animate until reaching fully opaque
+        while (currentValue < 1f)
+        {
+            currentValue += shaderVarRate;
+            mat.SetFloat(shaderVarRef, currentValue);
+            yield return null; // Wait for the next frame
+        }
     }
 }
