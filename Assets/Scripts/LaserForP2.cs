@@ -10,7 +10,8 @@ public class LaserForP2 : MonoBehaviour
     public float rotationSpeed1 = 45f;  
     public AudioClip laserSound1;
     public GameObject extraPrefab1;
-    public string gamepadButton = "Fire2"; 
+    public string gamepadButton = "Fire2";
+    public float swordCooldown1 = 3f; // Cooldown
 
     private Quaternion initialRotation;  
     private bool isRotating = false; 
@@ -96,6 +97,8 @@ public class LaserForP2 : MonoBehaviour
 
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser1();
+
+        yield return new WaitForSeconds(swordCooldown1);
 
         // Reset the flag to indicate that rotation is complete
         isRotating = false;

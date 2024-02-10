@@ -10,6 +10,7 @@ public class LaserForP1 : MonoBehaviour
     public float rotationSpeed = 45f;   // Laser object rotation speed
     public AudioClip laserSound;        // Sound effect for the laser
     public GameObject extraPrefab;      // Extra prefab to instantiate
+    public float swordCooldown = 3f;    // Cooldown
 
     private Quaternion initialRotation;  // Initial rotation of the Laser object
     private bool isRotating = false;     // Flag to check if rotation is in progress
@@ -92,6 +93,8 @@ public class LaserForP1 : MonoBehaviour
 
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser();
+
+        yield return new WaitForSeconds(swordCooldown);
 
         // Reset the flag to indicate that rotation is complete
         isRotating = false;

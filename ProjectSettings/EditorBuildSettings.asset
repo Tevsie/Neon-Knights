@@ -6,6 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/backups/backup_ivan.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/scene_start.unity
+    guid: f7b98de3f20de9347aaaa072105d2180
+  - enabled: 1
+    path: Assets/Scenes/scene_background.unity
+    guid: e7623947151fb3a438fefc56176dce84
+  - enabled: 1
+    path: Assets/Scenes/scene_demo.unity
+    guid: b0cd75481dd151747a79d88287494fb9
   m_configObjects: {}
