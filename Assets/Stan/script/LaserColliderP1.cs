@@ -2,41 +2,23 @@ using UnityEngine;
 
 public class LaserColliderP1 : MonoBehaviour
 {
-    public SpawnManager spawnManager;
-
       private void OnTriggerEnter2D(Collider2D collision)
     {
         EnemyBoundChecker enemyBoundsChecker = collision.gameObject.GetComponent<EnemyBoundChecker>();
         
         if (enemyBoundsChecker != null && enemyBoundsChecker.IsWithinScreenBounds())
         {
-            switch (collision.tag)
+            if (collision.tag == "EnemyMk1" || collision.tag == "EnemyMk2")
             {
-                case "EnemyMk1":
-                    DestroyEnemy(collision.gameObject);
-                    break;
-                case "EnemyMk2":
-                    DamageEnemy(collision.gameObject, 1);
-                    break;
-                default:
-                    break;
+                Debug.Log("Collided against " + collision.tag);
+                DamageEnemy(collision.gameObject, 1);
             }
+            
         }
 
         else if (collision.tag == "Player2")
         {
             FriendlyFire(collision.gameObject, 1);
-        }
-    }
-    
-    private void DestroyEnemy(GameObject enemy)
-    {
-        
-        Destroy(enemy);
-
-        if (spawnManager != null)
-        {
-            spawnManager.DecreaseEnemyCount();
         }
     }
 
@@ -46,7 +28,8 @@ public class LaserColliderP1 : MonoBehaviour
 
         if (enemyHealth != null)
         {
-            enemyHealth.TakeDamage(damage, "EnemyMk2");
+            string enemyType = enemy.tag;
+            enemyHealth.TakeDamage(damage, enemyType);
         }
     }
 

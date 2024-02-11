@@ -295,7 +295,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0.5
+  speed: 1
   targetPoint: {x: -14, y: 20, z: 0}
 --- !u!114 &-263400154504163329
 MonoBehaviour:
@@ -309,7 +309,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a7ca257784a1e41af8abf361c61f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthMk2: 5
+  healthMk1: 1
+  healthMk2: 3
+  enemyDeathPS: {fileID: 4714132150805660421, guid: f451a2bb90d47894aa113d17a01d3e47, type: 3}
   balanceManager: {fileID: 9169747125141096989, guid: 3fdbc81d73902f64a880d453e35eb76b, type: 3}
 --- !u!114 &-592333497847477297
 MonoBehaviour:

@@ -3,11 +3,13 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour
 {
     private float healthP1;             
-    private float healthP2;             
-    public float healthMk2;       
+    private float healthP2;    
+    public float healthMk1;            
+    public float healthMk2;    
 
     private MeshBlinkingEffect playerBlinkingEffect;
     private MeshBlinkingEffect enemyBlinkingEffect;
+    public ParticleSystem enemyDeathPS;
 
     private SpawnManager spawnManager; 
     private RespawnManager respawnManager;
@@ -72,6 +74,16 @@ public class PlayerHealth : MonoBehaviour
                 Die("EnemyMk2");
             }
         }
+        else if (playerTag == "EnemyMk1")
+        {
+            healthMk1 -= damage;
+            enemyBlinkingEffect.StartBlinking();
+
+            if (healthMk1 <= 0f)
+            {
+                Die("EnemyMk1");
+            }
+        }
     }
 
     // Function to handle death or respawn
@@ -81,10 +93,10 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log(playerName + " is dead");
 
         // If the enemy dies, decrease the enemy count
-        if (playerName == "EnemyMk2")
+        if (playerName == "EnemyMk2" || playerName == "EnemyMk1")
         {
-            // Destroy the EnemyMk2 GameObject
             Destroy(gameObject);
+            Instantiate (enemyDeathPS, transform.position, Quaternion.identity);
             // Decrease the enemy count
             spawnManager.DecreaseEnemyCount();
         }

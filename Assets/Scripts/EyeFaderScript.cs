@@ -7,7 +7,6 @@ public class EyeFaderScript : MonoBehaviour
     public string shaderVarRef;
     public float shaderVarRate = 0.1f;
 
-    // Coroutine to fade out the eye effect
     public IEnumerator FadeOutEyes()
     {
         float currentValue = mat.GetFloat(shaderVarRef);
@@ -17,11 +16,10 @@ public class EyeFaderScript : MonoBehaviour
         {
             currentValue -= shaderVarRate;
             mat.SetFloat(shaderVarRef, currentValue);
-            yield return null; // Wait for the next frame
+            yield return null; 
         }
     }
 
-    // Coroutine to fade in the eye effect
     public IEnumerator FadeInEyes()
     {
         float currentValue = mat.GetFloat(shaderVarRef);
@@ -31,12 +29,12 @@ public class EyeFaderScript : MonoBehaviour
         {
             currentValue += shaderVarRate;
             mat.SetFloat(shaderVarRef, currentValue);
-            yield return null; // Wait for the next frame
+            yield return null; 
         }
     }
 }
 
-/*
+/* At the moment, Stan is retaining mostly the original function of the EyeFaderScript. A BackupEyeFader has been created which is a copy of Gabriel's version.
  * 
  * To call this script from another
  * 

@@ -461,6 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a7ca257784a1e41af8abf361c61f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthMk2: 0
   balanceManager: {fileID: 1522168841}
 --- !u!4 &119111918
 Transform:
@@ -2779,6 +2780,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 2171071177849160225, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
+      propertyPath: balanceManager
+      value: 
+      objectReference: {fileID: 1522168841}
     - target: {fileID: 3802758848908115986, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.011
@@ -3923,6 +3928,7 @@ MonoBehaviour:
   meshRefreshRate: 500000
   meshDestroyDelay: 0.2
   positionToSpawn: {fileID: 1192329099}
+  trailActivationInterval: 1
   mat: {fileID: 2100000, guid: 090a8b7ce5ca1224f9dd42c393654fbf, type: 2}
   shaderVarRef: _Alpha
   shaderVarRate: 0.4
@@ -5128,7 +5134,7 @@ MonoBehaviour:
   laserP1: {fileID: 1508004844}
   laserP1Script: {fileID: 1925363780}
   movementP1Script: {fileID: 1307842189}
-  p1Health: 1
+  p1Health: 5
   p1LaserLength: 2
   p1RotateSpeed: 75
   p1RotateAngle: 45
@@ -5137,7 +5143,7 @@ MonoBehaviour:
   laserP2: {fileID: 527606268}
   laserP2Script: {fileID: 783438481}
   movementP2Script: {fileID: 1780412275}
-  p2Health: 1
+  p2Health: 5
   p2LaserLength: 2
   p2RotateSpeed: 75
   p2RotateAngle: 45
@@ -5147,11 +5153,10 @@ MonoBehaviour:
   enemyMk2: {fileID: 4682890227492975720, guid: d75d78231af2bb54585cf16833b4d3d7, type: 3}
   enemyMk1Speed: 1.5
   enemyMk2Speed: 0.5
-  enemyMk2Health: 7
   Note: 'SpawnManager handles spawn rates.
 
-    PlayerHealth manages player and enemy
-    HP. '
+    Atm, can only modify Mk2 HP through
+    its prefab. '
 --- !u!224 &1526659531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1918874007248372225, guid: 42b8c34987a983a4ab921bbec091efa1, type: 3}
@@ -5876,6 +5881,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 3134709c592d8e9408cac177587cd82e, type: 2}
+    - target: {fileID: 5084017700149334247, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: balanceManager
+      value: 
+      objectReference: {fileID: 1522168841}
     - target: {fileID: 5301478534318280904, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
       propertyPath: m_Name
       value: gabriel_player_pink
@@ -7499,6 +7508,7 @@ MonoBehaviour:
   meshRefreshRate: 500000
   meshDestroyDelay: 0.2
   positionToSpawn: {fileID: 2113712626}
+  trailActivationInterval: 1
   mat: {fileID: 2100000, guid: d899e783552e9974d8cd6b6485cf755c, type: 2}
   shaderVarRef: _Alpha
   shaderVarRate: 0.4
