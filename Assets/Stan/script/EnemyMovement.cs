@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 5f;
+    public float speed; 
     public Vector3 targetPoint; // Point outside the game scene where enemies will move if no players are present
 
     private GameObject[] player1Objects;

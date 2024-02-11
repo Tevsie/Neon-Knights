@@ -4,10 +4,10 @@ public class BalanceManager : MonoBehaviour
 {
     [Header("Accessing...")]
     public PlayerHealth healthScript;
-    public GameObject laserP1;
-    public GameObject laserP2;
+    // public SpawnManager spawnManager;
 
     [Header("Player 1 Balance")]
+    public GameObject laserP1;
     public LaserForP1 laserP1Script;
     public Movement4player1 movementP1Script;
     public float p1LaserLength;
@@ -17,6 +17,7 @@ public class BalanceManager : MonoBehaviour
     public float p1MovementSpeed; 
 
     [Header("Player 2 Balance")]
+    public GameObject laserP2;
     public LaserForP2 laserP2Script;
     public Movement4player2 movementP2Script;
     public float p2LaserLength;
@@ -25,13 +26,39 @@ public class BalanceManager : MonoBehaviour
     public float p2Cooldown;
     public float p2MovementSpeed;
 
+    [Header("Enemy Balance")]
+    public GameObject enemyMk1;
+    public GameObject enemyMk2;
+    public float enemyMk1Speed;
+    public float enemyMk2Speed;
 
-    // public PlayerHealth playerHealthScript;
-    // public SpawnManager spawnManagerScript;
+    void Start()
+    {
+        // Initialize enemy's speed before the game begins
+        if (enemyMk1 != null)
+        {
+            // Access EnemyMovement component attached to EnemyMK1 and modify speed
+            EnemyMovement enemyMk1Movement = enemyMk1.GetComponent<EnemyMovement>();
+            if (enemyMk1Movement != null)
+            {
+                enemyMk1Movement.speed = enemyMk1Speed; 
+            }
+        }
+
+        if (enemyMk2 != null)
+        {
+            // Access EnemyMovement component attached to EnemyMK2 and modify speed
+            EnemyMovement enemyMk2Movement = enemyMk2.GetComponent<EnemyMovement>();
+            if (enemyMk2Movement != null)
+            {
+                enemyMk2Movement.speed = enemyMk2Speed; // Modify the speed directly
+            }
+        }
+    }
 
     void Update()
     {
-         // Check if the objectToScale reference is assigned
+        // Laser P1 Length Modifiers
         if (laserP1 != null)
         {
             Vector3 newScale = laserP1.transform.localScale;
@@ -39,18 +66,13 @@ public class BalanceManager : MonoBehaviour
             laserP1.transform.localScale = newScale;
         }
 
+        // Laser P2 Length Modifiers
          if (laserP2 != null)
         {
             Vector3 newScale = laserP2.transform.localScale;
             newScale.x = p2LaserLength;
             laserP2.transform.localScale = newScale;
         }
-
-
-
-        // laserP1Script.rotationSpeed += laserP1RotateSpeedMod;
-        // laserP1Script.rotationAngle += laserP1RotateAngleMod;
-        // laserP1Script.swordCooldown += laserP2CooldownMod;
 
     //     // Modify player starting health
     //     if (playerHealthScript != null)
@@ -65,4 +87,16 @@ public class BalanceManager : MonoBehaviour
     //     }
     // }
     }
+
+    // void SetEnemySpeed(GameObject enemy, float speed)
+    // {
+    //     if (enemy != null)
+    //     {
+    //         EnemyMovement enemyMovement = enemy.GetComponent<EnemyMovement>();
+    //         if (enemyMovement != null)
+    //         {
+    //             enemyMovement.SetSpeed(speed);
+    //         }
+    //     }
+    // }
 }
