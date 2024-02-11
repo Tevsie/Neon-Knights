@@ -10,6 +10,7 @@ public class EyeFaderScript : MonoBehaviour
     // Start the eye animation
     public void StartEyeAnimation(float goal)
     {
+        StartCoroutine(TurnOffEyes());
         StartCoroutine(AnimateEyes(goal));
     }
 
@@ -19,7 +20,7 @@ public class EyeFaderScript : MonoBehaviour
         float valueToAnimate = mat.GetFloat(shaderVarRef);
 
         // Animate until reaching the goal value
-        while (valueToAnimate > goal)
+        while (valueToAnimate < goal)
         {
             valueToAnimate -= shaderVarRate;
             mat.SetFloat(shaderVarRef, valueToAnimate);
@@ -28,9 +29,26 @@ public class EyeFaderScript : MonoBehaviour
     }
 
     // Coroutine to turn off the eye effect
-    public IEnumerator TurnOffEyes()
+    private IEnumerator TurnOffEyes()
     {
         mat.SetFloat(shaderVarRef, 0f);
         yield return null;
     }
 }
+
+/*
+ * 
+ * To call this script from another
+ * 
+ *public class AnotherScript : MonoBehaviour
+{
+    public EyeFaderScript eyeFader; // Reference to the EyeFaderScript
+
+    // Example method to trigger eye animation
+    public void TriggerEyeAnimation(float goalValue)
+    {
+        // Call StartEyeAnimation method from EyeFaderScript
+        eyeFader.StartEyeAnimation(goalValue);   //The goal is the maximum alpha of the eyes, which is 1
+    }
+}
+*/
