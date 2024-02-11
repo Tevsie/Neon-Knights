@@ -10,6 +10,8 @@ public class AwesomeTrailScript : MonoBehaviour
     public float meshRefreshRate = 0.1f;
     public float meshDestroyDelay = 3f;
     public Transform positionToSpawn;
+    private float lastTrailActivationTime = 0f;
+    public float trailActivationInterval = 1f; // Interval of 1 second
 
 
     [Header("Shader Related")]
@@ -17,6 +19,7 @@ public class AwesomeTrailScript : MonoBehaviour
     public string shaderVarRef;
     public float shaderVarRate = 0.1f;
     public float shaderVarRefreshRate = 0.05f;
+    
 
     private bool isTrailActive;
     private SkinnedMeshRenderer[] skinnedMeshRenderers;
@@ -25,10 +28,15 @@ public class AwesomeTrailScript : MonoBehaviour
     {
         isTrailActive = true;
     }
+    
+
     void Update()
     {
-        if (isTrailActive == true)
+        if (isTrailActive == true && Time.time - lastTrailActivationTime >= trailActivationInterval)
+        {
             StartCoroutine(ActivateTrail());
+            lastTrailActivationTime = Time.time;
+        }
     }
 
     IEnumerator ActivateTrail()

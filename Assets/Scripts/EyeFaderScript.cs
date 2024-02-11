@@ -35,3 +35,20 @@ public class EyeFaderScript : MonoBehaviour
         }
     }
 }
+
+/*
+ * 
+ * To call this script from another
+ * 
+ *public class AnotherScript : MonoBehaviour
+{
+    public EyeFaderScript eyeFader; // Reference to the EyeFaderScript
+
+    // Example method to trigger eye animation
+    public void TriggerEyeAnimation(float goalValue)
+    {
+        // Call StartEyeAnimation method from EyeFaderScript
+        eyeFader.StartEyeAnimation(goalValue);   //The goal is the maximum alpha of the eyes, which is 1
+    }
+}
+*/
