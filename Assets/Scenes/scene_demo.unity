@@ -2767,7 +2767,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 0e983df34cebb3e42a8e37a1a1c28375, type: 2}
   shaderVarRef: _Alpha
-  shaderVarRate: 0.1
+  shaderVarRate: 0.025
 --- !u!1001 &1005700069
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6196,7 +6196,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 1770233034}
-  fadeSpeed: 0.5
+  fadeSpeed: 0.85
 --- !u!114 &1770233033
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6210,7 +6210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rend: {fileID: 1770233034}
-  fadeSpeed: 1.5
+  fadeSpeed: 2
 --- !u!212 &1770233034
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6868,7 +6868,7 @@ MonoBehaviour:
   rotationSpeed: 75
   laserSound: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab: {fileID: 1326801664}
-  swordCooldown: 2
+  swordCooldown: 1.5
   fadeOutScript: {fileID: 1770233032}
   fadeInScript: {fileID: 1770233033}
   eyeFaderScript: {fileID: 972664897}

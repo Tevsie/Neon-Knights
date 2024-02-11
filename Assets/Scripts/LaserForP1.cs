@@ -99,8 +99,10 @@ public class LaserForP1 : MonoBehaviour
 
         Debug.Log("Reveal coolness");
         fadeOutScript.StartFadingOut();
-        yield return new WaitForSeconds(swordCooldown);
+        yield return new WaitForSeconds(swordCooldown / (4/3)  );
+
         StartCoroutine(eyeFaderScript.FadeInEyes());
+        yield return new WaitForSeconds(swordCooldown / 4 );
 
         isRotating = false;
     }
