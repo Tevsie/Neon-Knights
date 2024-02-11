@@ -1,16 +1,18 @@
 using UnityEngine;
 using System.Collections;
-using System.Runtime.Serialization.Formatters;
 
 public class LaserForP1 : MonoBehaviour
 {
     public GameObject laserCenter;      
     public Transform playerPosition;    
-    public GameObject playerRotation;   
-    public float rotationAngle = 90f;    
-    public float rotationSpeed = 45f;   
+    public GameObject playerRotation;     
     public AudioClip laserSound;        
     public GameObject extraPrefab;      // Muzzle flare prefab
+
+    // Balancing Parameters
+    public BalanceManager balanceManager;
+    private float rotationAngle;    
+    public float rotationSpeed; 
     public float swordCooldown = 3f;    
 
     private Quaternion initialRotation;  
@@ -24,6 +26,7 @@ public class LaserForP1 : MonoBehaviour
 
     void Start()
     {
+        rotationAngle = balanceManager.laserP1RotateAngleOverride;
         StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter.transform.rotation;
@@ -86,7 +89,7 @@ public class LaserForP1 : MonoBehaviour
         while (currentRotation < rotationAngle)
         {
             // Rotate the Laser object with negative rotation speed
-            laserCenter.transform.Rotate(Vector3.forward, -rotationSpeed * Time.deltaTime);
+            laserCenter.transform.Rotate(Vector3.forward, - rotationSpeed * Time.deltaTime);
 
             currentRotation += rotationSpeed * Time.deltaTime;
 
