@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float startingHealth = 5f; 
-    public float healthP1;             
-    public float healthP2;             
-    public float healthMk2 = 3f;       
+    private float healthP1;             
+    private float healthP2;             
+    public float healthMk2;       
 
     private MeshBlinkingEffect playerBlinkingEffect;
     private MeshBlinkingEffect enemyBlinkingEffect;
 
     private SpawnManager spawnManager; 
-    private RespawnManager respawnManager; 
+    private RespawnManager respawnManager;
+    public BalanceManager balanceManager;
 
     private bool isRespawningP1 = false; 
     private bool isRespawningP2 = false; 
@@ -19,16 +19,14 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         // Initialize health values
-        healthP1 = startingHealth;
-        healthP2 = startingHealth;
+        healthP1 = balanceManager.p1Health;
+        healthP2 = balanceManager.p2Health;
     
         playerBlinkingEffect = GetComponent<MeshBlinkingEffect>();
         enemyBlinkingEffect = GetComponent<MeshBlinkingEffect>();
 
         spawnManager = FindObjectOfType<SpawnManager>();
         respawnManager = FindObjectOfType<RespawnManager>();
-
-        
     }
 
     // Function to handle taking damage
@@ -92,9 +90,14 @@ public class PlayerHealth : MonoBehaviour
         }
 
         // Start respawn coroutine for players
-        if (playerName == "Player1" || playerName == "Player2")
+        if (playerName == "Player1")
         {
-            StartCoroutine(respawnManager.RespawnPlayer(gameObject, startingHealth));
+            StartCoroutine(respawnManager.RespawnPlayer(gameObject, healthP1));
+        }
+
+        if (playerName == "Player2")
+        {
+            StartCoroutine(respawnManager.RespawnPlayer(gameObject, healthP2));
         }
     }
 

@@ -1,28 +1,25 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
 public class EnemySpawnInfo
 {
-    public GameObject enemyPrefab; // The enemy prefab
-    public float spawnRate; // The spawn rate for this enemy type
+    public GameObject enemyPrefab; 
+    public float spawnRate; 
 }
 
 public class SpawnManager : MonoBehaviour
 {
-    public EnemySpawnInfo[] enemySpawnInfo; // Array of enemy spawn information
-    public float spawnInterval = 2f; // Interval between spawns
-    public int maxEnemiesPerSpawnPoint = 5; // Maximum number of enemies allowed per spawn point
-    public int minEnemiesToSpawn = 2; // Minimum number of enemies to spawn per interval
-    public int maxTotalEnemies = 50; // Maximum total number of enemies allowed
+    public EnemySpawnInfo[] enemySpawnInfo; 
+    public float spawnInterval = 2f; 
+    public int maxEnemiesPerSpawnPoint = 5; 
+    public int minEnemiesToSpawn = 2; 
+    public int maxTotalEnemies = 50; 
 
-    public Transform[] spawnPoints; // Array of spawn points representing different zones
+    public Transform[] spawnPoints; 
     public Transform parentObject; // Parent GameObject for the spawned enemies
 
-    private int currentEnemies = 0; // Current number of enemies
+    private int currentEnemies = 0; 
 
-    // Start is called before the first frame update
     void Start()
     {
         // Start spawning enemies

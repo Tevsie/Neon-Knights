@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class BalanceManager : MonoBehaviour
 {
-    [Header("Accessing...")]
-    public PlayerHealth healthScript;
-    // public SpawnManager spawnManager;
+    public PlayerHealth healthManager;
 
     [Header("Player 1 Balance")]
     public GameObject laserP1;
     public LaserForP1 laserP1Script;
     public Movement4player1 movementP1Script;
+    public int p1Health;
     public float p1LaserLength;
     public int p1RotateSpeed;
     public int p1RotateAngle;
@@ -20,6 +19,7 @@ public class BalanceManager : MonoBehaviour
     public GameObject laserP2;
     public LaserForP2 laserP2Script;
     public Movement4player2 movementP2Script;
+    public int p2Health;
     public float p2LaserLength;
     public int p2RotateSpeed;
     public int p2RotateAngle;
@@ -32,6 +32,10 @@ public class BalanceManager : MonoBehaviour
     public float enemyMk1Speed;
     public float enemyMk2Speed;
 
+    [Header("Spawn Rates and Enemy Mk2 HP")]
+    [TextArea]
+    public string Note;
+    
     void Start()
     {
         // Initialize enemy's speed before the game begins

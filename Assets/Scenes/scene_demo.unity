@@ -461,10 +461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a7ca257784a1e41af8abf361c61f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
-  healthP1: 5
-  healthP2: 5
-  healthMk2: 3
+  balanceManager: {fileID: 1522168841}
 --- !u!4 &119111918
 Transform:
   m_ObjectHideFlags: 0
@@ -3325,11 +3322,11 @@ Transform:
   - {fileID: 1531303410}
   - {fileID: 101625599}
   - {fileID: 186858446}
+  - {fileID: 1522168840}
   - {fileID: 703677890}
   - {fileID: 119111918}
   - {fileID: 1309296620}
   - {fileID: 402424154}
-  - {fileID: 1522168840}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1113599313
@@ -5123,23 +5120,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3753be5d61583940951ab2814f5409f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthScript: {fileID: 0}
+  healthManager: {fileID: 119111917}
   laserP1: {fileID: 1508004844}
-  laserP2: {fileID: 527606268}
   laserP1Script: {fileID: 1925363780}
   movementP1Script: {fileID: 1307842189}
+  p1Health: 1
   p1LaserLength: 2
   p1RotateSpeed: 75
   p1RotateAngle: 45
   p1Cooldown: 1.5
   p1MovementSpeed: 5
+  laserP2: {fileID: 527606268}
   laserP2Script: {fileID: 783438481}
   movementP2Script: {fileID: 1780412275}
+  p2Health: 1
   p2LaserLength: 2
   p2RotateSpeed: 75
   p2RotateAngle: 45
   p2Cooldown: 1.5
   p2MovementSpeed: 5
+  enemyMk1: {fileID: 2826108809213010886, guid: 776bbd94a6152fa42b854b40781f5641, type: 3}
+  enemyMk2: {fileID: 4682890227492975720, guid: d75d78231af2bb54585cf16833b4d3d7, type: 3}
+  enemyMk1Speed: 1.5
+  enemyMk2Speed: 0.5
+  enemyMk2Health: 7
+  Note: 'SpawnManager handles spawn rates.
+
+    PlayerHealth manages player and enemy
+    HP. '
 --- !u!224 &1526659531 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1918874007248372225, guid: 42b8c34987a983a4ab921bbec091efa1, type: 3}
