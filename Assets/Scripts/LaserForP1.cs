@@ -7,7 +7,7 @@ public class LaserForP1 : MonoBehaviour
     public Transform playerPosition;    
     public GameObject playerRotation;     
     public AudioClip laserSound;        
-    public GameObject extraPrefab;      // Muzzle flare prefab
+    public GameObject extraPrefab;   // Muzzle flare prefab
 
     // Balancing Parameters
     public BalanceManager balanceManager;
@@ -30,7 +30,6 @@ public class LaserForP1 : MonoBehaviour
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter.transform.rotation;
 
-
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
@@ -40,6 +39,7 @@ public class LaserForP1 : MonoBehaviour
 
     void Update()
     {
+        // Balance Manager handles parameters
         rotationSpeed = balanceManager.p1RotateSpeed;
         rotationAngle = balanceManager.p1RotateAngle;
         swordCooldown = balanceManager.p1Cooldown;

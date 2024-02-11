@@ -1,20 +1,20 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float startingHealth = 5f;  // Initial health
-    public float healthP1;             // Player 1 health
-    public float healthP2;             // Player 2 health
-    public float healthMk2 = 3f;       // EnemyMk2 health
+    public float startingHealth = 5f; 
+    public float healthP1;             
+    public float healthP2;             
+    public float healthMk2 = 3f;       
 
     private MeshBlinkingEffect playerBlinkingEffect;
     private MeshBlinkingEffect enemyBlinkingEffect;
-    private SpawnManager spawnManager; // Reference to the SpawnManager script
-    private RespawnManager respawnManager; // Reference to the RespawnManager script
 
-    private bool isRespawningP1 = false; // Flag to track if Player 1 is respawning
-    private bool isRespawningP2 = false; // Flag to track if Player 2 is respawning
+    private SpawnManager spawnManager; 
+    private RespawnManager respawnManager; 
+
+    private bool isRespawningP1 = false; 
+    private bool isRespawningP2 = false; 
 
     void Start()
     {

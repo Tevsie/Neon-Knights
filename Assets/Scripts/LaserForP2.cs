@@ -6,12 +6,15 @@ public class LaserForP2 : MonoBehaviour
     public GameObject laserCenter1;  
     public Transform playerPosition1; 
     public GameObject playerRotation1; 
-    public float rotationAngle1 = 90f;  
-    public float rotationSpeed1 = 45f;  
+    public string gamepadButton = "Fire2";
     public AudioClip laserSound1;
     public GameObject extraPrefab1;
-    public string gamepadButton = "Fire2";
-    public float swordCooldown1 = 3f; // Cooldown
+
+    // Balancing Parameters
+    public BalanceManager balanceManager;
+    private int rotationAngle1;  
+    private int rotationSpeed1;  
+    private float swordCooldown1; 
 
     private Quaternion initialRotation;  
     private bool isRotating = false; 
@@ -37,6 +40,11 @@ public class LaserForP2 : MonoBehaviour
 
     void Update()
     {
+        // Balance Manager handles parameters
+        rotationSpeed1 = balanceManager.p2RotateSpeed;
+        rotationAngle1 = balanceManager.p2RotateAngle;
+        swordCooldown1 = balanceManager.p2Cooldown;
+
         if (Input.GetButtonDown(gamepadButton) && !isRotating)  // Check for the specified gamepad button press and no ongoing rotation
         {
             initialRotation = playerRotation1.transform.rotation * Quaternion.Euler(0, 0, 90);

@@ -2,11 +2,15 @@ using UnityEngine;
 
 public class Movement4player2 : MonoBehaviour
 {
-    public float moveSpeed = 5f;  // Character movement speed
+    // Balancing Parameters
+    public BalanceManager balanceManager;
+    private float moveSpeed;  
 
     void Update()
     {
-        // Get input data for horizontal and vertical axes
+        // Balance Manager handles parameters
+        moveSpeed = balanceManager.p2MovementSpeed;
+
         float horizontalInput = Input.GetAxis("Horizontal1");
         float verticalInput = Input.GetAxis("Vertical1");
 
