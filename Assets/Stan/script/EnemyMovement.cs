@@ -21,14 +21,17 @@ public class EnemyMovement : MonoBehaviour
 
         if (nearestPlayer != null)
         {
-            // Calculate direction towards the player
+            // Calculate direction towards the player in world space
             Vector3 direction = (nearestPlayer.transform.position - transform.position).normalized;
 
+            // Convert the direction to local space
+            Vector3 localDirection = transform.InverseTransformDirection(direction);
+
             // Ignore the Z component to move only along the X and Y axes
-            direction.z = 0f;
+            localDirection.z = 0f;
 
             // Move the enemy towards the player
-            transform.Translate(direction * speed * Time.deltaTime);
+            transform.Translate(localDirection * speed * Time.deltaTime);
         }
         else
         {

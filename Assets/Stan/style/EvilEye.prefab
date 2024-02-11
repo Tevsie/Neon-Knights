@@ -239,6 +239,7 @@ GameObject:
   - component: {fileID: 5967726726819515158}
   - component: {fileID: 5253197545709984633}
   - component: {fileID: 5727732991379158258}
+  - component: {fileID: -8309525398668454808}
   - component: {fileID: 2864135247026438344}
   - component: {fileID: 6020555218784713771}
   m_Layer: 0
@@ -291,8 +292,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8212dc903bdf6b245a3daae5b5b17d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 1
   targetPoint: {x: -14, y: 20, z: 0}
+--- !u!114 &-8309525398668454808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826108809213010886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a7fa5e33f1dcc245be6359177ded088, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTags:
+  - Player1
+  - Player2
 --- !u!70 &2864135247026438344
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
