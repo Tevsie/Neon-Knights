@@ -1,30 +1,37 @@
 using UnityEngine;
-using System.Collections;
 
 public class LaserColliderP1 : MonoBehaviour
 {
     public SpawnManager spawnManager;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+      private void OnTriggerEnter2D(Collider2D collision)
     {
-        switch (collision.tag)
+        EnemyBoundChecker enemyBoundsChecker = collision.gameObject.GetComponent<EnemyBoundChecker>();
+        
+        if (enemyBoundsChecker != null && enemyBoundsChecker.IsWithinScreenBounds())
         {
-            case "EnemyMk1":
-                DestroyEnemy(collision.gameObject);
-                break;
-            case "EnemyMk2":
-                DamageEnemy(collision.gameObject, 1);
-                break;
-            case "Player2":
-                FriendlyFire(collision.gameObject, 1);
-                break;
-            default:
-                break;
+            switch (collision.tag)
+            {
+                case "EnemyMk1":
+                    DestroyEnemy(collision.gameObject);
+                    break;
+                case "EnemyMk2":
+                    DamageEnemy(collision.gameObject, 1);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        else if (collision.tag == "Player2")
+        {
+            FriendlyFire(collision.gameObject, 1);
         }
     }
     
     private void DestroyEnemy(GameObject enemy)
     {
+        
         Destroy(enemy);
 
         if (spawnManager != null)

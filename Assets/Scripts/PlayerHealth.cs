@@ -21,14 +21,14 @@ public class PlayerHealth : MonoBehaviour
         // Initialize health values
         healthP1 = startingHealth;
         healthP2 = startingHealth;
-        // Get the BlinkingEffect components attached to the player
+    
         playerBlinkingEffect = GetComponent<MeshBlinkingEffect>();
-        // Get the enemy blinking effect component
         enemyBlinkingEffect = GetComponent<MeshBlinkingEffect>();
-        // Get the SpawnManager script attached to the SpawnManager object
+
         spawnManager = FindObjectOfType<SpawnManager>();
-        // Get the RespawnManager script
         respawnManager = FindObjectOfType<RespawnManager>();
+
+        
     }
 
     // Function to handle taking damage

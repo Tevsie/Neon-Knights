@@ -4,18 +4,18 @@ using System.Runtime.Serialization.Formatters;
 
 public class LaserForP1 : MonoBehaviour
 {
-    public GameObject laserCenter;      // Laser object
-    public Transform playerPosition;    // Player object
-    public GameObject playerRotation;   // Player rotation object
-    public float rotationAngle = 90f;   // Rotation angle when activating the Laser object
-    public float rotationSpeed = 45f;   // Laser object rotation speed
-    public AudioClip laserSound;        // Sound effect for the laser
-    public GameObject extraPrefab;      // Extra prefab to instantiate
-    public float swordCooldown = 3f;    // Cooldown
+    public GameObject laserCenter;      
+    public Transform playerPosition;    
+    public GameObject playerRotation;   
+    public float rotationAngle = 90f;    
+    public float rotationSpeed = 45f;   
+    public AudioClip laserSound;        
+    public GameObject extraPrefab;      // Muzzle flare prefab
+    public float swordCooldown = 3f;    
 
-    private Quaternion initialRotation;  // Initial rotation of the Laser object
-    private bool isRotating = false;     // Flag to check if rotation is in progress
-    private AudioSource audioSource;     // Reference to the AudioSource component
+    private Quaternion initialRotation;  
+    private bool isRotating = false;     
+    private AudioSource audioSource;     
     private GameObject extraPrefabInstance; // Instance of the extra prefab
 
     public FadeOutScript fadeOutScript;
@@ -24,14 +24,14 @@ public class LaserForP1 : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter.transform.rotation;
 
-        // Get the AudioSource component attached to this GameObject
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            // If no AudioSource is found, add one to this GameObject
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
@@ -42,10 +42,10 @@ public class LaserForP1 : MonoBehaviour
         {
         initialRotation = playerRotation.transform.rotation * Quaternion.Euler(0, 0, 90);
 
-            ActivateLaser();
+        ActivateLaser();
 
             // Instantiate the extra prefab
-            extraPrefabInstance = Instantiate(extraPrefab, playerPosition.position, Quaternion.identity);
+        extraPrefabInstance = Instantiate(extraPrefab, playerPosition.position, Quaternion.identity);
 
             if (laserSound != null)
             {
@@ -62,7 +62,6 @@ public class LaserForP1 : MonoBehaviour
 
         // Set the position and rotation of the Laser object to match the Player's position and rotation
         laserCenter.transform.position = playerPosition.position;
-        //laserCenter.transform.rotation = playerPosition.rotation;
     }
 
     void ActivateLaser()

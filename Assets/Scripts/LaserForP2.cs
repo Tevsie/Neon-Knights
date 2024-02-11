@@ -18,16 +18,19 @@ public class LaserForP2 : MonoBehaviour
     private AudioSource audioSource;
     private GameObject extraPrefabInstance;
 
+    // public FadeOutScript fadeOutScript;
+    // public FadeInScript fadeInScript;
+    // public EyeFaderScript eyeFaderScript;
+
     void Start()
     {
+        // StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter1.transform.rotation;
 
-        // Get the AudioSource component attached to this GameObject
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            // If no AudioSource is found, add one to this GameObject
             audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
@@ -37,6 +40,7 @@ public class LaserForP2 : MonoBehaviour
         if (Input.GetButtonDown(gamepadButton) && !isRotating)  // Check for the specified gamepad button press and no ongoing rotation
         {
             initialRotation = playerRotation1.transform.rotation * Quaternion.Euler(0, 0, 90);
+
             ActivateLaser1();
 
             extraPrefabInstance = Instantiate(extraPrefab1, playerPosition1.position, Quaternion.identity);
@@ -66,20 +70,18 @@ public class LaserForP2 : MonoBehaviour
 
     void ActivateLaser1()
     {
-        // Set the flag to indicate that rotation is in progress
         isRotating = true;
-
-        // Activate the Laser object (if it was inactive)
         laserCenter1.SetActive(true);
-
-        // Start the coroutine for gradual rotation of the Laser object
         StartCoroutine(LaserCoroutine1());
     }
 
     IEnumerator LaserCoroutine1()
     {
-        laserCenter1.transform.rotation = initialRotation;
+        // Debug.Log("Blocking P2 sunglasses");
+        // fadeInScript.StartFadingIn();
+        // StartCoroutine(eyeFaderScript.FadeOutEyes());
 
+        laserCenter1.transform.rotation = initialRotation;
         // Additional rotation around the Z-axis
         laserCenter1.transform.Rotate(Vector3.forward, rotationAngle1 / 2f);
 
@@ -98,6 +100,11 @@ public class LaserForP2 : MonoBehaviour
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser1();
 
+        // Debug.Log("Revealing P2 coolness");
+        // fadeOutScript.StartFadingOut();
+        // yield return new WaitForSeconds(swordCooldown1 / (4/3));
+        // StartCoroutine(eyeFaderScript.FadeInEyes());
+        // yield return new WaitForSeconds(swordCooldown1 / 4 );
         yield return new WaitForSeconds(swordCooldown1);
 
         // Reset the flag to indicate that rotation is complete

@@ -1979,7 +1979,7 @@ MonoBehaviour:
   laserSound1: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab1: {fileID: 1486128856}
   gamepadButton: Fire2
-  swordCooldown1: 1
+  swordCooldown1: 1.5
 --- !u!82 &783438482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1992,8 +1992,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
-  m_Pitch: 1.5
+  m_Volume: 0.12
+  m_Pitch: 2
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4160,11 +4160,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4219137225166186, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.267032
+      value: -14.37
       objectReference: {fileID: 0}
     - target: {fileID: 4219137225166186, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.608176
+      value: -8.8
       objectReference: {fileID: 0}
     - target: {fileID: 4219137225166186, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5839,6 +5839,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 8809171978084591505, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 869013506030529853, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
@@ -6376,15 +6377,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6563349462374388650, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.2875
+      value: 1.7876893
       objectReference: {fileID: 0}
     - target: {fileID: 6563349462374388650, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.48
+      value: 6.16
       objectReference: {fileID: 0}
     - target: {fileID: 6563349462374388650, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.12
+      value: -5.14
       objectReference: {fileID: 0}
     - target: {fileID: 6563349462374388650, guid: d47f4b659be68034496d45ebd1dbbbad, type: 3}
       propertyPath: m_LocalPosition.z

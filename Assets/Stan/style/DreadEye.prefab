@@ -244,6 +244,7 @@ GameObject:
   - component: {fileID: 4566955148530250369}
   - component: {fileID: 6227414843637648077}
   - component: {fileID: 5075618136430864900}
+  - component: {fileID: -7101910494092416268}
   m_Layer: 0
   m_Name: DreadEye
   m_TagString: EnemyMk2
@@ -403,6 +404,19 @@ MonoBehaviour:
   targetTags:
   - Player1
   - Player2
+--- !u!114 &-7101910494092416268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4682890227492975720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e27145f92cb2b42a4fbd0ffeb93329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenBoundMargin: 0.1
 --- !u!1 &6082040173189915182
 GameObject:
   m_ObjectHideFlags: 0

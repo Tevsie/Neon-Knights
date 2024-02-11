@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: -8309525398668454808}
   - component: {fileID: 2864135247026438344}
   - component: {fileID: 6020555218784713771}
+  - component: {fileID: -5668183805323428692}
   m_Layer: 0
   m_Name: EvilEye
   m_TagString: EnemyMk1
@@ -371,6 +372,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-5668183805323428692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2826108809213010886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14e27145f92cb2b42a4fbd0ffeb93329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  screenBoundMargin: 0.1
 --- !u!1 &4004104936175885101
 GameObject:
   m_ObjectHideFlags: 0
