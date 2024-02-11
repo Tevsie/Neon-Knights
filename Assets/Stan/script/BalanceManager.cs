@@ -4,9 +4,9 @@ public class BalanceManager : MonoBehaviour
 {
     // P1 laser modifiers
     public LaserForP1 laserP1Script;
-    public int laserP1RotateSpeedOverride = 1;
-    public int laserP1RotateAngleOverride = 1;
-    public int laserP1CooldownMod = 1;
+    public int p1RotateSpeed;
+    public int p1RotateAngle;
+    public float p1Cooldown;
 
     // // P2 laser modifiers
     // public LaserForP2 laserP2Script;

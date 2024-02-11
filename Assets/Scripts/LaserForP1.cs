@@ -11,9 +11,9 @@ public class LaserForP1 : MonoBehaviour
 
     // Balancing Parameters
     public BalanceManager balanceManager;
-    private float rotationAngle;    
-    public float rotationSpeed; 
-    public float swordCooldown = 3f;    
+    private int rotationAngle; 
+    private int rotationSpeed; 
+    private float swordCooldown;     
 
     private Quaternion initialRotation;  
     private bool isRotating = false;     
@@ -26,7 +26,6 @@ public class LaserForP1 : MonoBehaviour
 
     void Start()
     {
-        rotationAngle = balanceManager.laserP1RotateAngleOverride;
         StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter.transform.rotation;
@@ -41,6 +40,10 @@ public class LaserForP1 : MonoBehaviour
 
     void Update()
     {
+        rotationSpeed = balanceManager.p1RotateSpeed;
+        rotationAngle = balanceManager.p1RotateAngle;
+        swordCooldown = balanceManager.p1Cooldown;
+        
         if (Input.GetMouseButtonDown(0) && !isRotating)  // Check for left mouse button press and no ongoing rotation
         {
         initialRotation = playerRotation.transform.rotation * Quaternion.Euler(0, 0, 90);
