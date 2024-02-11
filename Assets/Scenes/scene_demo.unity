@@ -1974,6 +1974,7 @@ MonoBehaviour:
   laserSound1: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab1: {fileID: 1486128856}
   gamepadButton: Fire2
+  swordCooldown1: 3
 --- !u!82 &783438482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4908,6 +4909,8 @@ GameObject:
   - component: {fileID: 1527080247}
   - component: {fileID: 1527080246}
   - component: {fileID: 1527080245}
+  - component: {fileID: 1527080249}
+  - component: {fileID: 1527080248}
   m_Layer: 5
   m_Name: pause-screen
   m_TagString: Untagged
@@ -4999,6 +5002,44 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1527080248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527080243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.7647059}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1527080249
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527080243}
+  m_CullTransparentMesh: 1
 --- !u!1 &1531303409
 GameObject:
   m_ObjectHideFlags: 0
@@ -6519,6 +6560,7 @@ MonoBehaviour:
   rotationSpeed: 75
   laserSound: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab: {fileID: 1326801664}
+  swordCooldown: 3
 --- !u!1 &1927521943
 GameObject:
   m_ObjectHideFlags: 0
