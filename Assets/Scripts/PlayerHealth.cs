@@ -102,12 +102,12 @@ public class PlayerHealth : MonoBehaviour
         // Start respawn coroutine for players
         if (playerName == "Player1")
         {
-            respawnManager.RespawnPlayer(gameObject, balanceManager.p1Health);
+            respawnManager.RespawnPlayer1(gameObject, balanceManager.p1Health);
         }
 
         if (playerName == "Player2")
         {
-            respawnManager.RespawnPlayer(gameObject, balanceManager.p1Health);
+            respawnManager.RespawnPlayer2(gameObject, balanceManager.p1Health);
         }
     }
 
