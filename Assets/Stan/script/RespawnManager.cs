@@ -4,7 +4,7 @@ using System.Collections;
 public class RespawnManager : MonoBehaviour
 {
     public float respawnTime; // Respawn time in seconds
-    private Vector3 respawnPosition = new Vector3(1000, 1000, 1000); // Position to move player during respawn
+    private Vector3 respawnPosition; // Position to move player during respawn
 
     private bool isRespawningPlayer1 = false;
     private bool isRespawningPlayer2 = false;
@@ -51,6 +51,7 @@ public class RespawnManager : MonoBehaviour
         // Store the player's current position
         Vector3 originalPosition = playerObject.transform.position;
 
+        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 1000f);
         playerObject.transform.position = respawnPosition;
 
         Debug.Log("Player " + playerObject.name + " moved for respawn.");
@@ -98,6 +99,7 @@ public class RespawnManager : MonoBehaviour
         // Store the player's current position
         Vector3 originalPosition = playerObject.transform.position;
 
+        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 1000f);
         playerObject.transform.position = respawnPosition;
 
         Debug.Log("Player " + playerObject.name + " moved for respawn.");
@@ -135,12 +137,20 @@ public class RespawnManager : MonoBehaviour
 
         GameObject player1 = GameObject.FindGameObjectWithTag("Player1");
         GameObject player2 = GameObject.FindGameObjectWithTag("Player2");
+        GameObject p1Laser = GameObject.Find("p1-laser");
+        GameObject p2Laser = GameObject.Find("p2-laser");
 
         // Deactivate both players
         if (player1 != null)
             player1.SetActive(false);
         if (player2 != null)
             player2.SetActive(false);
+
+        // Deactivate both lasers as well
+        if (p1Laser != null)
+            p1Laser.SetActive(false);
+        if (p2Laser != null)
+            p2Laser.SetActive(false);
 
         // Activate the ending GameObject
         if (endingGameObject != null)
