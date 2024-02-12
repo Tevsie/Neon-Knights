@@ -86,13 +86,11 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    // Function to handle death or respawn
     void Die(string playerName)
     {
-        // Logic for death
+        // Debug for player's death
         Debug.Log(playerName + " is dead");
 
-        // If the enemy dies, decrease the enemy count
         if (playerName == "EnemyMk2" || playerName == "EnemyMk1")
         {
             Destroy(gameObject);
@@ -104,25 +102,25 @@ public class PlayerHealth : MonoBehaviour
         // Start respawn coroutine for players
         if (playerName == "Player1")
         {
-            StartCoroutine(respawnManager.RespawnPlayer(gameObject, healthP1));
+            respawnManager.RespawnPlayer(gameObject, balanceManager.p1Health);
         }
 
         if (playerName == "Player2")
         {
-            StartCoroutine(respawnManager.RespawnPlayer(gameObject, healthP2));
+            respawnManager.RespawnPlayer(gameObject, balanceManager.p1Health);
         }
     }
 
     // Function to reset player health
-    public void ResetHealth(float health)
+    public void ResetHealth()
     {
         if (gameObject.CompareTag("Player1"))
         {
-            healthP1 = health;
+            healthP1 = balanceManager.p1Health;
         }
         else if (gameObject.CompareTag("Player2"))
         {
-            healthP2 = health;
+            healthP2 = balanceManager.p2Health;
         }
     }
 }

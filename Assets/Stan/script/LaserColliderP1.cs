@@ -10,10 +10,8 @@ public class LaserColliderP1 : MonoBehaviour
         {
             if (collision.tag == "EnemyMk1" || collision.tag == "EnemyMk2")
             {
-                Debug.Log("Collided against " + collision.tag);
                 DamageEnemy(collision.gameObject, 1);
-            }
-            
+            }  
         }
 
         else if (collision.tag == "Player2")

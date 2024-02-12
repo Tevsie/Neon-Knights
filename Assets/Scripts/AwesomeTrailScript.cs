@@ -43,8 +43,6 @@ public class AwesomeTrailScript : MonoBehaviour
     {
         while (isTrailActive == true)
         {
-            
-
             if (skinnedMeshRenderers == null)
                 skinnedMeshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
 
