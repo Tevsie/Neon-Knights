@@ -2,42 +2,36 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public float speed = 5f; // Speed of enemy movement
-    public float minimumDistance = 2f; // Minimum distance to maintain between enemies
+    public float speed; 
     public Vector3 targetPoint; // Point outside the game scene where enemies will move if no players are present
 
-    private GameObject[] player1Objects; // Array to store player1 GameObjects
-    private GameObject[] player2Objects; // Array to store player2 GameObjects
+    private GameObject[] player1Objects;
+    private GameObject[] player2Objects;
 
     void Start()
     {
-        // Find all GameObjects tagged as "Player1" and "Player2" in the scene
         UpdatePlayerArrays();
     }
 
     void Update()
     {
-        // Update the player arrays if necessary
         UpdatePlayerArrays();
 
-        // Find the nearest player
         GameObject nearestPlayer = FindNearestPlayer();
 
-        // If a nearest player is found, move toward it
         if (nearestPlayer != null)
         {
-            // Calculate direction towards the player
+            // Calculate direction towards the player in world space
             Vector3 direction = (nearestPlayer.transform.position - transform.position).normalized;
 
-            // Ignore the Z component to move only along the X and Y axes
-            direction.z = 0f;
+            // Convert the direction to local space
+            Vector3 localDirection = transform.InverseTransformDirection(direction);
 
-            // Check if there's an obstacle in the way
-            if (!IsObstacleInWay(direction))
-            {
-                // Move the enemy towards the player
-                transform.Translate(direction * speed * Time.deltaTime);
-            }
+            // Ignore the Z component to move only along the X and Y axes
+            localDirection.z = 0f;
+
+            // Move the enemy towards the player
+            transform.Translate(localDirection * speed * Time.deltaTime);
         }
         else
         {
@@ -91,21 +85,5 @@ public class EnemyMovement : MonoBehaviour
         }
 
         return nearestPlayer;
-    }
-
-    bool IsObstacleInWay(Vector3 direction)
-    {
-        RaycastHit2D hit;
-        // Cast a ray to check for obstacles in the specified direction
-        hit = Physics2D.Raycast(transform.position, direction, minimumDistance);
-        if (hit.collider != null)
-        {
-            // If an obstacle is found, return true
-            if (hit.collider.CompareTag("Enemy"))
-            {
-                return true;
-            }
-        }
-        return false;
     }
 }

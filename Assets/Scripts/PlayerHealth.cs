@@ -1,33 +1,33 @@
 using UnityEngine;
-using System.Collections;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public float startingHealth = 5f;  // Initial health
-    public float healthP1;             // Player 1 health
-    public float healthP2;             // Player 2 health
-    public float healthMk2 = 3f;       // EnemyMk2 health
+    private float healthP1;             
+    private float healthP2;    
+    public float healthMk1;            
+    public float healthMk2;    
 
     private MeshBlinkingEffect playerBlinkingEffect;
     private MeshBlinkingEffect enemyBlinkingEffect;
-    private SpawnManager spawnManager; // Reference to the SpawnManager script
-    private RespawnManager respawnManager; // Reference to the RespawnManager script
+    public ParticleSystem enemyDeathPS;
 
-    private bool isRespawningP1 = false; // Flag to track if Player 1 is respawning
-    private bool isRespawningP2 = false; // Flag to track if Player 2 is respawning
+    private SpawnManager spawnManager; 
+    private RespawnManager respawnManager;
+    public BalanceManager balanceManager;
+
+    private bool isRespawningP1 = false; 
+    private bool isRespawningP2 = false; 
 
     void Start()
     {
         // Initialize health values
-        healthP1 = startingHealth;
-        healthP2 = startingHealth;
-        // Get the BlinkingEffect components attached to the player
+        healthP1 = balanceManager.p1Health;
+        healthP2 = balanceManager.p2Health;
+    
         playerBlinkingEffect = GetComponent<MeshBlinkingEffect>();
-        // Get the enemy blinking effect component
         enemyBlinkingEffect = GetComponent<MeshBlinkingEffect>();
-        // Get the SpawnManager script attached to the SpawnManager object
+
         spawnManager = FindObjectOfType<SpawnManager>();
-        // Get the RespawnManager script
         respawnManager = FindObjectOfType<RespawnManager>();
     }
 
@@ -38,7 +38,6 @@ public class PlayerHealth : MonoBehaviour
         if (isRespawningP1 || isRespawningP2)
             return;
 
-        // Check the player tag and update health accordingly
         if (playerTag == "Player1")
         {
             healthP1 -= damage;
@@ -75,40 +74,53 @@ public class PlayerHealth : MonoBehaviour
                 Die("EnemyMk2");
             }
         }
+        else if (playerTag == "EnemyMk1")
+        {
+            healthMk1 -= damage;
+            enemyBlinkingEffect.StartBlinking();
+
+            if (healthMk1 <= 0f)
+            {
+                Die("EnemyMk1");
+            }
+        }
     }
 
-    // Function to handle death or respawn
     void Die(string playerName)
     {
-        // Logic for death
+        // Debug for player's death
         Debug.Log(playerName + " is dead");
 
-        // If the enemy dies, decrease the enemy count
-        if (playerName == "EnemyMk2")
+        if (playerName == "EnemyMk2" || playerName == "EnemyMk1")
         {
-            // Destroy the EnemyMk2 GameObject
             Destroy(gameObject);
+            Instantiate (enemyDeathPS, transform.position, Quaternion.identity);
             // Decrease the enemy count
             spawnManager.DecreaseEnemyCount();
         }
 
         // Start respawn coroutine for players
-        if (playerName == "Player1" || playerName == "Player2")
+        if (playerName == "Player1")
         {
-            StartCoroutine(respawnManager.RespawnPlayer(gameObject, startingHealth));
+            respawnManager.RespawnPlayer1(gameObject, balanceManager.p1Health);
+        }
+
+        if (playerName == "Player2")
+        {
+            respawnManager.RespawnPlayer2(gameObject, balanceManager.p1Health);
         }
     }
 
     // Function to reset player health
-    public void ResetHealth(float health)
+    public void ResetHealth()
     {
         if (gameObject.CompareTag("Player1"))
         {
-            healthP1 = health;
+            healthP1 = balanceManager.p1Health;
         }
         else if (gameObject.CompareTag("Player2"))
         {
-            healthP2 = health;
+            healthP2 = balanceManager.p2Health;
         }
     }
 }
