@@ -23,11 +23,11 @@ public class LaserForP2 : MonoBehaviour
 
     // public FadeOutScript fadeOutScript;
     // public FadeInScript fadeInScript;
-    // public EyeFaderScript eyeFaderScript;
+    public EyeFaderScript eyeFaderScript;
 
     void Start()
     {
-        // StartCoroutine(eyeFaderScript.FadeInEyes());
+        StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter1.transform.rotation;
 
@@ -85,9 +85,8 @@ public class LaserForP2 : MonoBehaviour
 
     IEnumerator LaserCoroutine1()
     {
-        // Debug.Log("Blocking P2 sunglasses");
         // fadeInScript.StartFadingIn();
-        // StartCoroutine(eyeFaderScript.FadeOutEyes());
+        StartCoroutine(eyeFaderScript.FadeOutEyes());
 
         laserCenter1.transform.rotation = initialRotation;
         // Additional rotation around the Z-axis
@@ -108,12 +107,12 @@ public class LaserForP2 : MonoBehaviour
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser1();
 
-        // Debug.Log("Revealing P2 coolness");
+        Debug.Log("Revealing P2 coolness");
         // fadeOutScript.StartFadingOut();
-        // yield return new WaitForSeconds(swordCooldown1 / (4/3));
-        // StartCoroutine(eyeFaderScript.FadeInEyes());
-        // yield return new WaitForSeconds(swordCooldown1 / 4 );
-        yield return new WaitForSeconds(swordCooldown1);
+        yield return new WaitForSeconds(swordCooldown1 / (4/3));
+
+        StartCoroutine(eyeFaderScript.FadeInEyes());
+        yield return new WaitForSeconds(swordCooldown1 / 4 );
 
         // Reset the flag to indicate that rotation is complete
         isRotating = false;

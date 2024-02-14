@@ -1326,7 +1326,6 @@ GameObject:
   - component: {fileID: 2746488547042569021}
   - component: {fileID: 2088018943021403644}
   - component: {fileID: 4225789229463846848}
-  - component: {fileID: 2156922654309430778}
   - component: {fileID: 508175861437735230}
   m_Layer: 0
   m_Name: PlayerEyes
@@ -1425,21 +1424,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2156922654309430778
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8480363538010717274}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d42e3c7c801c0e4fb2728cfc8868452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 0e983df34cebb3e42a8e37a1a1c28375, type: 2}
-  shaderVarRef: _Alpha
-  shaderVarRate: 0.025
 --- !u!114 &508175861437735230
 MonoBehaviour:
   m_ObjectHideFlags: 0

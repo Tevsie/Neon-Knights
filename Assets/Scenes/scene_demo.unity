@@ -2035,6 +2035,7 @@ MonoBehaviour:
   laserSound1: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
   extraPrefab1: {fileID: 1486128856}
   balanceManager: {fileID: 1522168841}
+  eyeFaderScript: {fileID: 1662605068}
 --- !u!82 &783438482
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2826,6 +2827,10 @@ PrefabInstance:
       propertyPath: mat
       value: 
       objectReference: {fileID: 2100000, guid: 090a8b7ce5ca1224f9dd42c393654fbf, type: 2}
+    - target: {fileID: 1872329555174465289, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1872329555174465289, guid: fca9763a00e26b343bd2f895dcbdd4ac, type: 3}
       propertyPath: trailActivationInterval
       value: 0.1
@@ -5655,7 +5660,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mat: {fileID: 2100000, guid: 1f416a7c51a757b4399e7a7a4ea94679, type: 2}
   shaderVarRef: _Alpha
-  shaderVarRate: 0.025
+  shaderVarRate: 0.035
 --- !u!1001 &1668914604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5961,6 +5966,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 24376021}
     m_Modifications:
+    - target: {fileID: 508175861437735230, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: shaderVarRate
+      value: 0.035
+      objectReference: {fileID: 0}
     - target: {fileID: 869013506030529853, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.47
@@ -6077,6 +6086,14 @@ PrefabInstance:
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[2].outWeight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6561496502516964792, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7980337121333058376, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9088977090542556654, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
       propertyPath: trailActivationInterval
       value: 0.1
@@ -6085,8 +6102,7 @@ PrefabInstance:
       propertyPath: balanceManager
       value: 
       objectReference: {fileID: 1522168841}
-    m_RemovedComponents:
-    - {fileID: 2156922654309430778, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6947991173489467915, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
     - {fileID: 6636748247160447731, guid: acae93e76db1781429e4ad76dffcb190, type: 3}
