@@ -21,8 +21,6 @@ public class LaserForP2 : MonoBehaviour
     private AudioSource audioSource;
     private GameObject extraPrefabInstance;
 
-    // public FadeOutScript fadeOutScript;
-    // public FadeInScript fadeInScript;
     public EyeFaderScript eyeFaderScript;
 
     void Start()
@@ -85,7 +83,6 @@ public class LaserForP2 : MonoBehaviour
 
     IEnumerator LaserCoroutine1()
     {
-        // fadeInScript.StartFadingIn();
         StartCoroutine(eyeFaderScript.FadeOutEyes());
 
         laserCenter1.transform.rotation = initialRotation;
@@ -108,7 +105,6 @@ public class LaserForP2 : MonoBehaviour
         DeactivateLaser1();
 
         Debug.Log("Revealing P2 coolness");
-        // fadeOutScript.StartFadingOut();
         yield return new WaitForSeconds(swordCooldown1 / (4/3));
 
         StartCoroutine(eyeFaderScript.FadeInEyes());

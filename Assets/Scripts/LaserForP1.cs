@@ -20,8 +20,6 @@ public class LaserForP1 : MonoBehaviour
     private AudioSource audioSource;     
     private GameObject extraPrefabInstance; // Instance of the extra prefab
 
-    public FadeOutScript fadeOutScript;
-    public FadeInScript fadeInScript;
     public EyeFaderScript eyeFaderScript;
 
     void Start()
@@ -80,7 +78,6 @@ public class LaserForP1 : MonoBehaviour
     IEnumerator LaserCoroutine()
     {
         Debug.Log("Blocking sunglasses");
-        fadeInScript.StartFadingIn();
         StartCoroutine(eyeFaderScript.FadeOutEyes());
 
         laserCenter.transform.rotation = initialRotation;
@@ -103,7 +100,6 @@ public class LaserForP1 : MonoBehaviour
         DeactivateLaser();
 
         Debug.Log("Reveal coolness");
-        fadeOutScript.StartFadingOut();
         yield return new WaitForSeconds(swordCooldown / (4/3)  );
 
         StartCoroutine(eyeFaderScript.FadeInEyes());
