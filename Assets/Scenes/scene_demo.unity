@@ -668,6 +668,8 @@ MonoBehaviour:
     spawnRate: 0.05
   - enemyPrefab: {fileID: 2826108809213010886, guid: 776bbd94a6152fa42b854b40781f5641, type: 3}
     spawnRate: 0.95
+  - enemyPrefab: {fileID: 2826108809213010886, guid: db273f67d90a4aa47ad6c9a17e69a087, type: 3}
+    spawnRate: 0.00009
   spawnInterval: 2
   maxEnemiesPerSpawnPoint: 5
   minEnemiesToSpawn: 2
@@ -2037,7 +2039,6 @@ MonoBehaviour:
   playerRotation1: {fileID: 1780412258}
   gamepadButton: Fire2
   laserSound1: {fileID: 8300000, guid: 7ac19b4316cfca64d9da0b383c69911d, type: 3}
-  extraPrefab1: {fileID: 1486128856}
   balanceManager: {fileID: 1522168841}
   eyeFaderScript: {fileID: 1662605068}
 --- !u!82 &783438482
@@ -3692,7 +3693,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513334805534062, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1535838850236608, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_Layer
@@ -4089,7 +4090,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1513334805534062, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1535838850236608, guid: 6a168b4c685b73b40bd1b4d8e2951c63, type: 3}
       propertyPath: m_Layer
