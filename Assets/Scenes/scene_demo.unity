@@ -1904,7 +1904,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_Name
-      value: Cone center
+      value: p2-cone-center
       objectReference: {fileID: 0}
     - target: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_IsActive
@@ -1949,6 +1949,14 @@ PrefabInstance:
     - target: {fileID: 1341340118555712612, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127986461904144070, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: coneWidth
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127986461904144070, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: coneHeight
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5359,6 +5367,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthManager: {fileID: 119111917}
   laserP1: {fileID: 1508004844}
+  p1ConeIndicator: {fileID: 1971753179}
   laserP1Script: {fileID: 1925363780}
   movementP1Script: {fileID: 1307842189}
   p1Health: 5
@@ -5367,7 +5376,10 @@ MonoBehaviour:
   p1RotateAngle: 45
   p1Cooldown: 0.75
   p1MovementSpeed: 5
+  p1ConeIndicatorWidth: 7
+  p1ConeIndicatorHeight: 9
   laserP2: {fileID: 527606268}
+  p2ConeIndicator: {fileID: 1715364110}
   laserP2Script: {fileID: 783438481}
   movementP2Script: {fileID: 1780412275}
   p2Health: 5
@@ -5376,6 +5388,8 @@ MonoBehaviour:
   p2RotateAngle: 45
   p2Cooldown: 0.75
   p2MovementSpeed: 5
+  p2ConeIndicatorWidth: 7
+  p2ConeIndicatorHeight: 9
   enemyMk1: {fileID: 2826108809213010886, guid: 776bbd94a6152fa42b854b40781f5641, type: 3}
   enemyMk2: {fileID: 4682890227492975720, guid: d75d78231af2bb54585cf16833b4d3d7, type: 3}
   enemyMk1Speed: 1.5
@@ -6030,6 +6044,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42b8c34987a983a4ab921bbec091efa1, type: 3}
+--- !u!1 &1715364110 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+  m_PrefabInstance: {fileID: 742755514}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1718249926
 GameObject:
   m_ObjectHideFlags: 0
@@ -7402,6 +7421,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09c28768fe3e0ab48ad958aa5688e428, type: 3}
+--- !u!1 &1971753179 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+  m_PrefabInstance: {fileID: 6757631373005265775}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1980369485
 GameObject:
   m_ObjectHideFlags: 0
@@ -7976,7 +8000,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_Name
-      value: Cone center
+      value: p1-cone-center
       objectReference: {fileID: 0}
     - target: {fileID: 64976562807066322, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_IsActive
@@ -7992,7 +8016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1341340118555712612, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1341340118555712612, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_LocalRotation.w
@@ -8021,6 +8045,22 @@ PrefabInstance:
     - target: {fileID: 1341340118555712612, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3220669314402412835, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127986461904144070, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: maxAngle
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127986461904144070, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: coneWidth
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4127986461904144070, guid: ac49df9396ecce74ab894e6ded4a5081, type: 3}
+      propertyPath: coneHeight
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
