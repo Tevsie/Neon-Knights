@@ -60,18 +60,18 @@ Material:
     - _Alpha: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Blend: 0
+    - _Blend: 1
     - _CastShadows: 1
     - _Cull: 2
     - _DstBlend: 10
     - _FresnelPower: 0.5
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _SrcBlend: 5
+    - _SrcBlend: 1
     - _Surface: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - _Color: {r: 0, g: 0.23415431, b: 0.2784314, a: 1}
+    - _Color: {r: 0.015686277, g: 2.207637, b: 2.9960787, a: 1}
   m_BuildTextureStacks: []

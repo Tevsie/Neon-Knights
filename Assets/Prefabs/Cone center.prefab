@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb6192522e80754aaa0354880c28c2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coneWidth: 12
-  coneHeight: 7
+  coneWidth: 5
+  coneHeight: 10
 --- !u!1 &2238402240173513236
 GameObject:
   m_ObjectHideFlags: 0
