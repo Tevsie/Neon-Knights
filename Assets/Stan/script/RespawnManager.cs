@@ -11,6 +11,7 @@ public class RespawnManager : MonoBehaviour
 
     public ParticleSystem P1DeathPS;
     public ParticleSystem P2DeathPS;
+    public AudioSource deathSound;
     public GameObject endingGameObject; // GameObject to activate at the end
 
     private bool resolvingRespawnPlayer1 = false;
@@ -40,6 +41,7 @@ public class RespawnManager : MonoBehaviour
         Debug.Log("Respawn coroutine started for " + playerObject.name);
 
         isRespawningPlayer1 = true;
+        deathSound.Play();
         Instantiate(P1DeathPS, playerObject.transform.position, Quaternion.identity);
 
         // Check if both players are respawning
@@ -88,6 +90,7 @@ public class RespawnManager : MonoBehaviour
         Debug.Log("Respawn coroutine started for " + playerObject.name);
 
         isRespawningPlayer2 = true;
+        deathSound.Play();
         Instantiate(P2DeathPS, playerObject.transform.position, Quaternion.identity);
 
         // Check if both players are respawning
