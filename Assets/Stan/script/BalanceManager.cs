@@ -6,6 +6,7 @@ public class BalanceManager : MonoBehaviour
 
     [Header("Player 1 Balance")]
     public GameObject laserP1;
+    public GameObject p1ConeIndicator;
     public LaserForP1 laserP1Script;
     public Movement4player1 movementP1Script;
     public int p1Health;
@@ -14,9 +15,12 @@ public class BalanceManager : MonoBehaviour
     public int p1RotateAngle;
     public float p1Cooldown;
     public float p1MovementSpeed; 
+    public int p1ConeIndicatorWidth;
+    public int p1ConeIndicatorHeight;
 
     [Header("Player 2 Balance")]
     public GameObject laserP2;
+    public GameObject p2ConeIndicator;
     public LaserForP2 laserP2Script;
     public Movement4player2 movementP2Script;
     public int p2Health;
@@ -25,6 +29,8 @@ public class BalanceManager : MonoBehaviour
     public int p2RotateAngle;
     public float p2Cooldown;
     public float p2MovementSpeed;
+    public int p2ConeIndicatorWidth;
+    public int p2ConeIndicatorHeight;
 
     [Header("Enemy Balance")]
     public GameObject enemyMk1;
@@ -62,6 +68,20 @@ public class BalanceManager : MonoBehaviour
 
     void Update()
     {
+        ConeSize coneSize1 = p1ConeIndicator.GetComponent<ConeSize>();
+        if (coneSize1 != null)
+        {
+            coneSize1.coneWidth = p1ConeIndicatorWidth;
+            coneSize1.coneHeight = p1ConeIndicatorHeight;
+        }
+
+        ConeSize coneSize2 = p2ConeIndicator.GetComponent<ConeSize>();
+        if (coneSize2 != null)
+        {
+            coneSize2.coneWidth = p2ConeIndicatorWidth;
+            coneSize2.coneHeight = p2ConeIndicatorHeight;
+        }
+
         // Laser P1 Length Modifiers
         if (laserP1 != null)
         {

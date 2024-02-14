@@ -7,7 +7,6 @@ public class ConeSize : MonoBehaviour
 
     void Update()
     {
-        // Устанавливаем масштаб объекта на основе coneWidth и coneHeight
         transform.localScale = new Vector3(coneWidth, coneHeight, 1f);
     }
 }

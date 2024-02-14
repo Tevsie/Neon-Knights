@@ -8,7 +8,7 @@ public class LaserForP2 : MonoBehaviour
     public GameObject playerRotation1; 
     public string gamepadButton = "Fire2";
     public AudioClip laserSound1;
-    public GameObject extraPrefab1;
+    // public GameObject extraPrefab1;
 
     // Balancing Parameters
     public BalanceManager balanceManager;
@@ -19,15 +19,15 @@ public class LaserForP2 : MonoBehaviour
     private Quaternion initialRotation;  
     private bool isRotating = false; 
     private AudioSource audioSource;
-    private GameObject extraPrefabInstance;
+    // private GameObject extraPrefabInstance;
 
     // public FadeOutScript fadeOutScript;
     // public FadeInScript fadeInScript;
-    // public EyeFaderScript eyeFaderScript;
+    public EyeFaderScript eyeFaderScript;
 
     void Start()
     {
-        // StartCoroutine(eyeFaderScript.FadeInEyes());
+        StartCoroutine(eyeFaderScript.FadeInEyes());
         // Save the initial rotation of the Laser object
         initialRotation = laserCenter1.transform.rotation;
 
@@ -51,20 +51,20 @@ public class LaserForP2 : MonoBehaviour
 
             ActivateLaser1();
 
-            extraPrefabInstance = Instantiate(extraPrefab1, playerPosition1.position, Quaternion.identity);
+            // extraPrefabInstance = Instantiate(extraPrefab1, playerPosition1.position, Quaternion.identity);
 
             if (laserSound1 != null)
             {
                 audioSource.PlayOneShot(laserSound1);
-                StartCoroutine(DestroyExtraPrefab1(extraPrefabInstance, laserSound1.length));  
+                // StartCoroutine(DestroyExtraPrefab1(extraPrefabInstance, laserSound1.length));  
             }
         }
 
         // Update the position of the extra prefab to match the player's position
-        if (extraPrefabInstance != null && playerPosition1 != null)
-        {
-            extraPrefabInstance.transform.position = playerPosition1.position;
-        }
+        // if (extraPrefabInstance != null && playerPosition1 != null)
+        // {
+        //     extraPrefabInstance.transform.position = playerPosition1.position;
+        // }
 
         laserCenter1.transform.position = playerPosition1.position;
 
@@ -85,9 +85,8 @@ public class LaserForP2 : MonoBehaviour
 
     IEnumerator LaserCoroutine1()
     {
-        // Debug.Log("Blocking P2 sunglasses");
         // fadeInScript.StartFadingIn();
-        // StartCoroutine(eyeFaderScript.FadeOutEyes());
+        StartCoroutine(eyeFaderScript.FadeOutEyes());
 
         laserCenter1.transform.rotation = initialRotation;
         // Additional rotation around the Z-axis
@@ -108,12 +107,12 @@ public class LaserForP2 : MonoBehaviour
         // Deactivate the Laser object after rotation and returning to the initial position
         DeactivateLaser1();
 
-        // Debug.Log("Revealing P2 coolness");
+        Debug.Log("Revealing P2 coolness");
         // fadeOutScript.StartFadingOut();
-        // yield return new WaitForSeconds(swordCooldown1 / (4/3));
-        // StartCoroutine(eyeFaderScript.FadeInEyes());
-        // yield return new WaitForSeconds(swordCooldown1 / 4 );
-        yield return new WaitForSeconds(swordCooldown1);
+        yield return new WaitForSeconds(swordCooldown1 / (4/3));
+
+        StartCoroutine(eyeFaderScript.FadeInEyes());
+        yield return new WaitForSeconds(swordCooldown1 / 4 );
 
         // Reset the flag to indicate that rotation is complete
         isRotating = false;
@@ -124,12 +123,12 @@ public class LaserForP2 : MonoBehaviour
         laserCenter1.SetActive(false);
     }
 
-    IEnumerator DestroyExtraPrefab1(GameObject extraPrefabInstance, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if (extraPrefabInstance != null)
-        {
-            Destroy(extraPrefabInstance);
-        }
-    }
+    // IEnumerator DestroyExtraPrefab1(GameObject extraPrefabInstance, float delay)
+    // {
+    //     yield return new WaitForSeconds(delay);
+    //     if (extraPrefabInstance != null)
+    //     {
+    //         Destroy(extraPrefabInstance);
+    //     }
+    // }
 }

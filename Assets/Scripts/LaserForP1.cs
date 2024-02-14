@@ -7,7 +7,7 @@ public class LaserForP1 : MonoBehaviour
     public Transform playerPosition;    
     public GameObject playerRotation;     
     public AudioClip laserSound;        
-    public GameObject extraPrefab;   // Muzzle flare prefab
+    // public GameObject extraPrefab;   // Muzzle flare prefab
 
     // Balancing Parameters
     public BalanceManager balanceManager;
@@ -18,10 +18,8 @@ public class LaserForP1 : MonoBehaviour
     private Quaternion initialRotation;  
     private bool isRotating = false;     
     private AudioSource audioSource;     
-    private GameObject extraPrefabInstance; // Instance of the extra prefab
+    // private GameObject extraPrefabInstance; // Instance of the muzzle flare
 
-    public FadeOutScript fadeOutScript;
-    public FadeInScript fadeInScript;
     public EyeFaderScript eyeFaderScript;
 
     void Start()
@@ -50,21 +48,21 @@ public class LaserForP1 : MonoBehaviour
 
         ActivateLaser();
 
-            // Instantiate the extra prefab
-        extraPrefabInstance = Instantiate(extraPrefab, playerPosition.position, Quaternion.identity);
+        //     // Instantiate the extra prefab
+        // extraPrefabInstance = Instantiate(extraPrefab, playerPosition.position, Quaternion.identity);
 
             if (laserSound != null)
             {
                 audioSource.PlayOneShot(laserSound);
-                StartCoroutine(DestroyExtraPrefab(extraPrefabInstance, laserSound.length));
+                // StartCoroutine(DestroyExtraPrefab(extraPrefabInstance, laserSound.length));
             }
         }
 
-        if (extraPrefabInstance != null && playerPosition != null)
-        {
-            // Update the position of the extra prefab to match the player's position
-            extraPrefabInstance.transform.position = playerPosition.position;
-        }
+        // if (extraPrefabInstance != null && playerPosition != null)
+        // {
+        //     // Update the position of the extra prefab to match the player's position
+        //     // extraPrefabInstance.transform.position = playerPosition.position;
+        // }
 
         // Set the position and rotation of the Laser object to match the Player's position and rotation
         laserCenter.transform.position = playerPosition.position;
@@ -80,7 +78,6 @@ public class LaserForP1 : MonoBehaviour
     IEnumerator LaserCoroutine()
     {
         Debug.Log("Blocking sunglasses");
-        fadeInScript.StartFadingIn();
         StartCoroutine(eyeFaderScript.FadeOutEyes());
 
         laserCenter.transform.rotation = initialRotation;
@@ -103,7 +100,6 @@ public class LaserForP1 : MonoBehaviour
         DeactivateLaser();
 
         Debug.Log("Reveal coolness");
-        fadeOutScript.StartFadingOut();
         yield return new WaitForSeconds(swordCooldown / (4/3)  );
 
         StartCoroutine(eyeFaderScript.FadeInEyes());
@@ -117,12 +113,12 @@ public class LaserForP1 : MonoBehaviour
         laserCenter.SetActive(false);
     }
 
-    IEnumerator DestroyExtraPrefab(GameObject extraPrefabInstance, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        if (extraPrefabInstance != null)
-        {
-            Destroy(extraPrefabInstance);
-        }
-    }
+    // IEnumerator DestroyExtraPrefab(GameObject extraPrefabInstance, float delay)
+    // {
+    //     yield return new WaitForSeconds(delay);
+    //     if (extraPrefabInstance != null)
+    //     {
+    //         Destroy(extraPrefabInstance);
+    //     }
+    // }
 }
