@@ -53,7 +53,7 @@ public class RespawnManager : MonoBehaviour
         // Store the player's current position
         Vector3 originalPosition = playerObject.transform.position;
 
-        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 1000f);
+        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 5000f);
         playerObject.transform.position = respawnPosition;
 
         Debug.Log("Player " + playerObject.name + " moved for respawn.");
@@ -102,7 +102,7 @@ public class RespawnManager : MonoBehaviour
         // Store the player's current position
         Vector3 originalPosition = playerObject.transform.position;
 
-        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 1000f);
+        respawnPosition = new Vector3(originalPosition.x, originalPosition.y, 5000f);
         playerObject.transform.position = respawnPosition;
 
         Debug.Log("Player " + playerObject.name + " moved for respawn.");
