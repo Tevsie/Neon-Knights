@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Material_2D_LaserLit1
+  m_Name: Material_2D_LaserLit1 1
   m_Shader: {fileID: -6465566751694194690, guid: c02ddd22ed8781440b561262ddd0dbcc, type: 3}
   m_Parent: {fileID: 2100000, guid: e36ba301598ff734bb71a4a46224fb78, type: 2}
   m_ModifiedSerializedProperties: 0
