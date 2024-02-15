@@ -38,9 +38,14 @@ public class RespawnManager : MonoBehaviour
     private IEnumerator RespawnCoroutinePlayer1(GameObject playerObject, float startingHealth)
     {
         resolvingRespawnPlayer1 = true;
-        Debug.Log("Respawn coroutine started for " + playerObject.name);
-
         isRespawningPlayer1 = true;
+
+        BoxCollider2D p1Collider = playerObject.GetComponent<BoxCollider2D>();
+        if (p1Collider != null)
+        {
+            p1Collider.enabled = false;
+        }
+
         deathSound.Play();
         Instantiate(P1DeathPS, playerObject.transform.position, Quaternion.identity);
 
@@ -65,6 +70,11 @@ public class RespawnManager : MonoBehaviour
         // Move the player back to their original position
         playerObject.transform.position = originalPosition;
 
+        if (p1Collider != null)
+        {
+            p1Collider.enabled = true;
+        }
+
         // Reset player health
         PlayerHealth playerHealth = playerObject.GetComponent<PlayerHealth>();
         if (playerHealth != null)
@@ -87,9 +97,14 @@ public class RespawnManager : MonoBehaviour
     private IEnumerator RespawnCoroutinePlayer2(GameObject playerObject, float startingHealth)
     {
         resolvingRespawnPlayer2 = true;
-        Debug.Log("Respawn coroutine started for " + playerObject.name);
-
         isRespawningPlayer2 = true;
+
+        BoxCollider2D p2Collider = playerObject.GetComponent<BoxCollider2D>();
+        if (p2Collider != null)
+        {
+            p2Collider.enabled = false;
+        }
+
         deathSound.Play();
         Instantiate(P2DeathPS, playerObject.transform.position, Quaternion.identity);
 
@@ -113,6 +128,11 @@ public class RespawnManager : MonoBehaviour
 
         // Move the player back to their original position
         playerObject.transform.position = originalPosition;
+
+        if (p2Collider != null)
+        {
+            p2Collider.enabled = true;
+        }
 
         // Reset player health
         PlayerHealth playerHealth = playerObject.GetComponent<PlayerHealth>();
