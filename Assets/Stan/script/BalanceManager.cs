@@ -15,8 +15,8 @@ public class BalanceManager : MonoBehaviour
     public int p1RotateAngle;
     public float p1Cooldown;
     public float p1MovementSpeed; 
-    public int p1ConeIndicatorWidth;
-    public int p1ConeIndicatorHeight;
+    public float p1ConeIndicatorWidth;
+    public float p1ConeIndicatorHeight;
 
     [Header("Player 2 Balance")]
     public GameObject laserP2;
@@ -29,8 +29,8 @@ public class BalanceManager : MonoBehaviour
     public int p2RotateAngle;
     public float p2Cooldown;
     public float p2MovementSpeed;
-    public int p2ConeIndicatorWidth;
-    public int p2ConeIndicatorHeight;
+    public float p2ConeIndicatorWidth;
+    public float p2ConeIndicatorHeight;
 
     [Header("Enemy Balance")]
     public GameObject enemyMk1;
