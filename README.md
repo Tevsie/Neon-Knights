@@ -18,7 +18,7 @@ Experiencing the thrill (or frustrations) of combating the enemies and your alli
 
 # Contributors
 Special thanks to the following amazing contributors! Without them the game wouldn't have been made.
-- Gabriel Stasi
+- Gabriele Stasi
 - Sara Eriksson
 - Ivan Sazanov
 - Stan Nguyen
